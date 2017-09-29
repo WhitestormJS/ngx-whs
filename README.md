@@ -5,6 +5,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Description
 
 An angular module which integrate angular and whs.
+
+Run the demo on your computer
+
+``` bash
+yarn start # or npm start
+```
+
 ...
 
 ## Usage
