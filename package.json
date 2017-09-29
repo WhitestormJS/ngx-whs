@@ -1,5 +1,5 @@
 {
-  "name": "ng-whs",
+  "name": "ngx-whs",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -10,7 +10,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/animations": "^4.2.4",
     "@angular/common": "^4.2.4",
