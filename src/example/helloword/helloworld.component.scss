@@ -1,0 +1,10 @@
+:host {
+  .row {
+    width: 50%;
+    .col {
+      width: 100%;
+      float: left;
+      border: 1px solid #000;
+    }
+  }
+}

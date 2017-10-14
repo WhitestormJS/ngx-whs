@@ -1,12 +1,12 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "ng-whs"
+    "name": "ngx-whs"
   },
   "apps": [
     {
-      "root": "demo/src",
-      "outDir": "demo/dist",
+      "root": "src",
+      "outDir": "doc",
       "assets": [
         "assets",
         "favicon.ico"
@@ -31,20 +31,20 @@
   ],
   "e2e": {
     "protractor": {
-      "config": "demo/protractor.conf.js"
+      "config": "src/protractor.conf.js"
     }
   },
   "lint": [
     {
-      "project": "demo/src/tsconfig.app.json",
+      "project": "src/tsconfig.app.json",
       "exclude": "**/node_modules/**"
     },
     {
-      "project": "demo/src/tsconfig.spec.json",
+      "project": "src/tsconfig.spec.json",
       "exclude": "**/node_modules/**"
     },
     {
-      "project": "demo/src/e2e/tsconfig.e2e.json",
+      "project": "src/e2e/tsconfig.e2e.json",
       "exclude": "**/node_modules/**"
     }
   ],

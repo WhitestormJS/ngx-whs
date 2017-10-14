@@ -5,6 +5,7 @@
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
+    "module": "umd",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es5",
@@ -16,7 +17,7 @@
       "dom"
     ],
     "plugins": [
-      { "name": "tslint-language-service"}
+      { "name": "tslint-language-service" }
     ]
   }
 }

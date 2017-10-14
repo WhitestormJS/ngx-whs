@@ -1,3 +1,3 @@
 export * from './components';
 
-export * from './ngWhs.module';
+export * from './ngxWhs.module';

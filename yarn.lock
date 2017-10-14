@@ -99,11 +99,11 @@
   dependencies:
     tslib "^1.7.1"
 
-"@angular/compiler-cli@^4.2.4":
-  version "4.4.3"
-  resolved "http://r.cnpmjs.org/@angular/compiler-cli/download/@angular/compiler-cli-4.4.3.tgz#183af81f141186b8d660b06429592d40b7540a4a"
+"@angular/compiler-cli@^4.4.4":
+  version "4.4.4"
+  resolved "http://r.cnpmjs.org/@angular/compiler-cli/download/@angular/compiler-cli-4.4.4.tgz#063080a497d9175396825050222c717da184f6cf"
   dependencies:
-    "@angular/tsc-wrapped" "4.4.3"
+    "@angular/tsc-wrapped" "4.4.4"
     minimist "^1.2.0"
     reflect-metadata "^0.1.2"
 
@@ -153,9 +153,9 @@
   dependencies:
     tslib "^1.7.1"
 
-"@angular/tsc-wrapped@4.4.3":
-  version "4.4.3"
-  resolved "http://r.cnpmjs.org/@angular/tsc-wrapped/download/@angular/tsc-wrapped-4.4.3.tgz#2d3f38210a1d4db03fc86dcf1e095812b85cd119"
+"@angular/tsc-wrapped@4.4.4":
+  version "4.4.4"
+  resolved "http://r.cnpmjs.org/@angular/tsc-wrapped/download/@angular/tsc-wrapped-4.4.4.tgz#9841821e55616b826ca160250fe85e15fc74ffc3"
   dependencies:
     tsickle "^0.21.0"
 
@@ -4586,6 +4586,10 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
   dependencies:
     hash-base "^2.0.0"
     inherits "^2.0.1"
+
+rollup@^0.50.0:
+  version "0.50.0"
+  resolved "http://r.cnpmjs.org/rollup/download/rollup-0.50.0.tgz#4c158f4e780e6cb33ff0dbfc184a52cc58cd5f3b"
 
 rsvp@~3.2.1:
   version "3.2.1"
