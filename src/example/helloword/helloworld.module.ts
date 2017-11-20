@@ -13,8 +13,11 @@ import { HelloWorldComponent } from './helloworld.component';
     HelloWorldRoutingModule,
     NgxWhsModule,
   ],
+  exports: [
+    HelloWorldComponent,
+  ],
   declarations: [
-    HelloWorldComponent
+    HelloWorldComponent,
   ],
 })
 export class HelloworldModule { }

@@ -1,4 +1,5 @@
-import { Component, ComponentRef, ElementRef, OnInit, Input, OnChanges, AfterViewInit, AfterContentInit } from '@angular/core';
+import { Component, ComponentRef, ElementRef, OnInit, Input, OnChanges, AfterViewInit, AfterContentInit, ViewChild,
+    TemplateRef } from '@angular/core';
 import * as THREE from 'three';
 import { App } from 'whs';
 
@@ -16,6 +17,8 @@ import { ElementModule, SceneModule, RenderingModule,  Component as WhsComponent
 export class ContainerComponent implements OnInit, OnChanges, AfterViewInit {
   private _container: App;
 
+  @ViewChild('instance') private instance: ElementRef;
+
   @Input() public modules = [];
 
   @Input() id: string;
@@ -24,15 +27,13 @@ export class ContainerComponent implements OnInit, OnChanges, AfterViewInit {
 
   private createContainer() {
     this._container = new App([
-      new ElementModule(this.element.nativeElement),
+      new ElementModule(this.instance.nativeElement),
       ...this.modules,
     ]);
   }
 
   public build() {
     this._container.start();
-
-    console.log(this._container);
   }
 
   ngOnInit() {
@@ -40,6 +41,8 @@ export class ContainerComponent implements OnInit, OnChanges, AfterViewInit {
     this.state.on(TYPE_ADDTO, (component: WhsComponent) => {
       component.addTo(this._container);
     });
+
+    console.log(this.instance);
   }
 
   ngOnChanges() {
