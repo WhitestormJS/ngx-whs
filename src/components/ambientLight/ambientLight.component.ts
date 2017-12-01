@@ -5,8 +5,7 @@ import { AmbientLight, AmbientLightParams } from 'whs';
 
 @Component({
   selector: 'whs-ambient-light',
-  templateUrl: './ambientLight.component.html',
-  styleUrls: [ './ambientLight.component.scss' ]
+  template: '<div></div>',
 })
 export class AmbientLightComponent extends LightComponent implements OnInit {
 

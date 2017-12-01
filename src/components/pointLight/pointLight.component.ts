@@ -7,8 +7,7 @@ import { StateService, TYPE_ADDTO, SenceComponent, LightComponent } from '../../
 
 @Component({
   selector: 'whs-point-light',
-  templateUrl: './pointLight.component.html',
-  styleUrls: [ './pointLight.component.scss' ]
+  template: '<div></div>',
 })
 export class PointLightComponent extends LightComponent implements OnInit {
 

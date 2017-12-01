@@ -7,8 +7,7 @@ import { StateService, TYPE_ADDTO, SenceComponent, ComponentComponent } from '..
 
 @Component({
   selector: 'whs-sphere',
-  templateUrl: './sphere.component.html',
-  styleUrls: [ './sphere.component.scss' ],
+  template: '<div></div>',
 })
 export class SphereComponent extends ComponentComponent implements OnInit {
   _instance;

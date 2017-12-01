@@ -11,8 +11,7 @@ import { ComponentComponent } from '../component';
 
 @Component({
   selector: 'whs-sence',
-  templateUrl: './sence.component.html',
-  styleUrls: ['./sence.component.scss'],
+  template: '<div #instance></div>',
   providers: [ StateService ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

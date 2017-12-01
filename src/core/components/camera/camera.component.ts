@@ -7,8 +7,7 @@ import { ComponentComponent } from '../component';
 
 @Component({
   selector: 'whs-camera',
-  templateUrl: './camera.component.html',
-  styleUrls: [ './camera.component.scss' ],
+  template: '<div></div>',
 })
 export class CameraComponent extends ComponentComponent implements OnInit {
 

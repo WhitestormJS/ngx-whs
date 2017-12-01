@@ -7,8 +7,7 @@ import { ComponentComponent } from '../component';
 
 @Component({
   selector: 'whs-mesh',
-  templateUrl: './mesh.component.html',
-  styleUrls: [ './mesh.component.scss' ],
+  template: '<div></div>',
 })
 export class MeshComponent extends ComponentComponent implements OnInit {
 

@@ -8,8 +8,7 @@ import { StateService, TYPE_ADDTO, SenceComponent, ComponentComponent } from '..
 
 @Component({
   selector: 'whs-plane',
-  templateUrl: './plane.component.html',
-  styleUrls: [ './plane.component.scss' ]
+  template: '<div></div>',
 })
 export class PlaneComponent extends ComponentComponent implements OnInit {
 

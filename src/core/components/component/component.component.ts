@@ -10,8 +10,7 @@ import { inject } from '@angular/core/testing';
 
 @Component({
   selector: 'whs-component',
-  templateUrl: './component.component.html',
-  styleUrls: [ './component.component.scss' ],
+  template: '<div></div>',
 })
 export class ComponentComponent implements OnInit, AfterViewInit, AfterContentInit {
   @Input() params: object;
