@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Injector } from '@angular/core';
 
 import { Subject } from 'rxjs/Subject';
 import { Subscription } from 'rxjs/Subscription';
@@ -11,6 +11,9 @@ import { Event } from './event';
 export class StateService {
 
   event$ = new Subject();
+
+
+  constructor() {}
 
   data = [];
   on<T>(name: symbol, fn: (data: T) => any): Subscription  {

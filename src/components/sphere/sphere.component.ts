@@ -1,37 +1,30 @@
 import { Component, Host, Optional, OnInit, Input } from '@angular/core';
-import { StateService, TYPE_ADDTO } from '../../state';
-import { ContainerComponent } from '../container';
 
 import { Sphere, SphereParams } from 'whs';
+
+import { StateService, TYPE_ADDTO, SenceComponent, ComponentComponent } from '../../core';
+
 
 @Component({
   selector: 'whs-sphere',
   templateUrl: './sphere.component.html',
   styleUrls: [ './sphere.component.scss' ],
 })
-export class SphereComponent implements OnInit {
-  private _instance;
+export class SphereComponent extends ComponentComponent implements OnInit {
+  _instance;
 
-  @Input() public props: SphereParams;
+  @Input() public params: SphereParams;
 
-
-  constructor(@Host() @Optional() private state: StateService, @Optional() private container: ContainerComponent ) {
-    if (!container) {
-      throw new Error('SphereComponent should be hosted by ContainerComponent');
-    }
-  }
-
-  initInstance() {
-    if (this.props) {
-      this._instance = new Sphere(this.props);
-    } else {
-      this._instance = new Sphere();
+  constructor(@Host() @Optional() private state: StateService, @Optional() private sence: SenceComponent ) {
+    super();
+    if (!sence) {
+      throw new Error('SphereComponent should be hosted by SenceComponent');
     }
   }
 
   ngOnInit() {
-    this.initInstance();
-    this.state.trigger(TYPE_ADDTO, this._instance);
+    this._instance = new Sphere(this.params);
+    this.sence.add(this._instance);
   }
 
 }

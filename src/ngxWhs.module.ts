@@ -1,26 +1,30 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ContainerComponent, SphereComponent, AmbientLightComponent,
+import { CoreModule, SenceComponent } from './core';
+
+import { SphereComponent, AmbientLightComponent,
         PointLightComponent, PlaneComponent } from './components';
 
 const COMPONETS = [
-  ContainerComponent,
   SphereComponent,
   AmbientLightComponent,
   PointLightComponent,
-  PlaneComponent
+  PlaneComponent,
 ];
 
 @NgModule({
   imports: [
     CommonModule,
+    CoreModule,
   ],
   declarations: [
     ...COMPONETS,
   ],
   exports: [
     ...COMPONETS,
+
+    SenceComponent,
   ]
 })
 export class NgxWhsModule { }

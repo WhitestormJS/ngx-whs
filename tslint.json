@@ -117,13 +117,13 @@
         "directive-selector": [
             true,
             "attribute",
-            "whs",
+            ["whs", "app"],
             "camelCase"
         ],
         "component-selector": [
             true,
             "element",
-            "whs",
+            ["whs", "app"],
             "kebab-case"
         ],
         "use-input-property-decorator": true,

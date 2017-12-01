@@ -1,7 +1,6 @@
-import { Component, Host, Optional, OnInit, Input } from '@angular/core';
+import { Component, Host, Optional, OnInit, Input, AfterViewInit, ViewChildren, QueryList } from '@angular/core';
 
-import { StateService, TYPE_ADDTO } from '../../state';
-import { ContainerComponent } from '../container';
+import { StateService, TYPE_ADDTO, SenceComponent, LightComponent } from '../../core';
 import { AmbientLight, AmbientLightParams } from 'whs';
 
 @Component({
@@ -9,24 +8,24 @@ import { AmbientLight, AmbientLightParams } from 'whs';
   templateUrl: './ambientLight.component.html',
   styleUrls: [ './ambientLight.component.scss' ]
 })
-export class AmbientLightComponent implements OnInit {
-  private _instance;
+export class AmbientLightComponent extends LightComponent implements OnInit {
 
-  @Input() public props: AmbientLightParams;
+  @Input() params: AmbientLightParams;
 
-  constructor(@Host() @Optional() private state: StateService, @Optional() private container: ContainerComponent ) {
-    if (!container) {
-      throw new Error('AmbientLightComponent should be hosted by ContainerComponent');
+  _instance: AmbientLight;
+
+  constructor(
+    @Host() @Optional() private state: StateService,
+    @Optional() private sence: SenceComponent,
+    ) {
+    super();
+    if (!sence) {
+      throw new Error('AmbientLightComponent should be hosted by SenceComponent');
     }
   }
 
-  initInstance() {
-    this._instance = new AmbientLight(this.props);
-  }
-
   ngOnInit() {
-    this.initInstance();
-    this.state.trigger(TYPE_ADDTO, this._instance);
+    this._instance = new AmbientLight(this.params);
   }
 
 

@@ -1,32 +1,31 @@
 import { Component, Host, Optional, OnInit, Input } from '@angular/core';
 
-import { StateService, TYPE_ADDTO } from '../../state';
-import { ContainerComponent } from '../container';
 import { PointLight, PointLightParams } from 'whs';
+
+
+import { StateService, TYPE_ADDTO, SenceComponent, LightComponent } from '../../core';
 
 @Component({
   selector: 'whs-point-light',
   templateUrl: './pointLight.component.html',
   styleUrls: [ './pointLight.component.scss' ]
 })
-export class PointLightComponent implements OnInit {
-  private _instance;
+export class PointLightComponent extends LightComponent implements OnInit {
 
-  @Input() public props: PointLightParams;
+  _instance: PointLight;
 
-  constructor(@Host() @Optional() private state: StateService, @Optional() private container: ContainerComponent ) {
-    if (!container) {
-      throw new Error('PointLightComponent should be hosted by ContainerComponent');
+  @Input() params: PointLightParams;
+
+  constructor(@Host() @Optional() private state: StateService, @Optional() private sence: SenceComponent ) {
+    super();
+    if (!sence) {
+      throw new Error('PointLightComponent should be hosted by SenceComponent');
     }
   }
 
-  initInstance() {
-    this._instance = new PointLight(this.props);
-  }
-
   ngOnInit() {
-    this.initInstance();
-    this.state.trigger(TYPE_ADDTO, this._instance);
+    this._instance = new PointLight(this.params);
+    console.log(this);
   }
 
 
