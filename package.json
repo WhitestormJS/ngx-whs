@@ -9,7 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "compiler": "tsc"
+    "compiler": "ngc",
+    "preinstall": "npm run compiler"
   },
   "main": "dist/out-tsc/index.js",
   "typing": "src/index.ts",
