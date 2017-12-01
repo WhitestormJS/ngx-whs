@@ -10,7 +10,6 @@
     "experimentalDecorators": true,
     "inlineSourceMap": true,
     "inlineSources": true,
-    "declaration": true,
     "skipLibCheck": true,
     "stripInternal": true,
     "typeRoots": [
@@ -19,7 +18,16 @@
     "lib": [
       "es2017",
       "dom"
+    ],
+    "plugins": [
+      { "name": "tslint-language-service" }
     ]
   },
-  "buildOnSave": false
+  "files": [
+    "src/index"
+  ],
+  "buildOnSave": false,
+  "angularCompilerOptions": {
+    "skipTemplateCodegen": true
+  }
 }
