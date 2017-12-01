@@ -3,7 +3,6 @@
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist",
-    // "sourceMap": true,
     "moduleResolution": "node",
     "target": "es5",
     "module": "es2015",
@@ -20,16 +19,7 @@
     "lib": [
       "es2017",
       "dom"
-    ],
-    "plugins": [
-      { "name": "tslint-language-service" }
     ]
   },
-  "files": [
-    "src/index"
-  ],
-  "buildOnSave": false,
-  "angularCompilerOptions": {
-    "skipTemplateCodegen": true
-  }
+  "buildOnSave": false
 }

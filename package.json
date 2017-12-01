@@ -1,15 +1,15 @@
 {
   "name": "ngx-whs",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": " npm run clean:typescript && ngc && npm run rollup",
+    "build": " npm run clean:typescript && npm run compiler && npm run rollup",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "compiler": "ngc",
+    "compiler": "ngc -p angular.tsconfig.json",
     "rollup": "./node_modules/.bin/rollup -c rollup.config.js dist/ngxWhs.module.js -o dist/ngxWhs.module.umd.js",
     "clean:typescript": "rimraf dist",
     "clean": "npm run clean:typescript && rimraf node_modules && npm cache verify",
