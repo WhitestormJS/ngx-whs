@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { CameraComponent as WhsCameraComponent, CameraComponentParams } from 'whs';
+import { CameraComponent as WhsCameraComponent, CameraComponentParams, CompositionError } from 'whs';
+import { Object3D } from 'three';
 
 import { ComponentComponent } from '../component';
 
@@ -23,7 +24,7 @@ export class CameraComponent extends ComponentComponent implements OnInit {
     this._instance = new WhsCameraComponent(this.params, this.defaults, this.instructions);
   }
 
-  build() {
+  build(): Object3D | CompositionError {
     return this._instance.build();
   }
 

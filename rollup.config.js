@@ -4,17 +4,21 @@ import commonjs from 'rollup-plugin-commonjs';
 import uglify from 'rollup-plugin-uglify';
 
 export default {
-  format: 'umd',
-  moduleName: 'ngx-whs',
+  output: {
+    format: 'umd',
+  },
+  name: 'ngx-whs',
   plugins: [
     nodeResolve({ jsnext: true, main: true, module: true }),
     commonjs(),
     uglify()
   ],
-  sourceMap: true,
+  sourcemap: true,
   external: [
     '@angular/core',
     '@angular/common',
+    'three',
+    'whs',
   ],
   onwarn: function (warning) {
     const skip_codes = [

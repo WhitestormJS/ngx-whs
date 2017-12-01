@@ -1,8 +1,9 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": "./",
     "outDir": "./dist",
-    "sourceMap": true,
+    // "sourceMap": true,
     "moduleResolution": "node",
     "target": "es5",
     "module": "es2015",

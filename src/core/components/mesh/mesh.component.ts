@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { MeshComponent as WhsMeshComponent, MeshComponentParams } from 'whs';
+import { MeshComponent as WhsMeshComponent, MeshComponentParams, CompositionError } from 'whs';
+import { Object3D, Mesh } from 'three';
 
 import { ComponentComponent } from '../component';
 
@@ -23,7 +24,7 @@ export class MeshComponent extends ComponentComponent implements OnInit {
     this._instance = new WhsMeshComponent(this.params, this.defaults, this.instructions);
   }
 
-  build() {
+  build(): CompositionError | Mesh |  Promise<Mesh> | Object3D {
     return this._instance.build();
   }
 

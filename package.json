@@ -1,6 +1,6 @@
 {
   "name": "ngx-whs",
-  "version": "0.0.0",
+  "version": "0.0.6",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -10,17 +10,16 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "compiler": "ngc",
-    "rollup": "./node_modules/.bin/rollup -c rollup.config.js dist/ngx-whs.js -o dist/ngx-whs.umd.js",
+    "rollup": "./node_modules/.bin/rollup -c rollup.config.js dist/ngxWhs.module.js -o dist/ngxWhs.module.umd.js",
     "clean:typescript": "rimraf dist",
-    "preinstall": "npm run build"
+    "clean": "npm run clean:typescript && rimraf node_modules && npm cache verify",
+    "prepublish": "npm run build"
   },
-  "main": "dist/out-tsc/index.js",
-  "typings": "src/index.ts",
+  "main": "dist/ngxWhs.module.umd.js",
+  "module": "dist/ngxWhs.module.js",
+  "js:next": "dist/ngxWhs.module.js",
+  "types": "src/ngxWhs.module.ts",
   "private": false,
-  "peerDependencies": {
-    "@angular/common": ">=2.0.0",
-    "@angular/core": ">=2.0.0"
-  },
   "dependencies": {
     "@angular/animations": "^4.2.4",
     "@angular/common": "^4.2.4",

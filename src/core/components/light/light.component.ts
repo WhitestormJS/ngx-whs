@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { LightComponent as WhsLightComponent, LightComponentParams } from 'whs';
+import { LightComponent as WhsLightComponent, LightComponentParams, CompositionError } from 'whs';
 
 import { ComponentComponent } from '../component';
 
@@ -22,7 +22,7 @@ export class LightComponent extends ComponentComponent implements OnInit {
     this._instance = new WhsLightComponent(this.params, this.defaults, this.instructions);
   }
 
-  build() {
+  build(): CompositionError | WhsLightComponent {
     return this._instance.build();
   }
 

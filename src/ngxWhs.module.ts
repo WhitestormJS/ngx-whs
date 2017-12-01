@@ -25,7 +25,7 @@ const COMPONETS = [
     ...COMPONETS,
 
     SenceComponent,
-  ]
+  ],
 })
 export class NgxWhsModule {
   static forRoot(): ModuleWithProviders {
@@ -37,3 +37,6 @@ export class NgxWhsModule {
     };
   }
 }
+
+export * from './components';
+export * from './core';
