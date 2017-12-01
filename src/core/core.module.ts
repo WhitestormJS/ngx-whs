@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SenceComponent, LightComponent, ComponentComponent, CameraComponent, MeshComponent } from './components';
 
 import { StateService } from './services';
 
-const PROVIDERS = [
+export const PROVIDERS = [
   StateService,
 ];
 
@@ -25,10 +25,6 @@ const DIRECTIVES = [];
     CommonModule,
   ],
 
-  providers: [
-    ...PROVIDERS,
-  ],
-
   declarations: [
     ...COMPONENTS,
     ...DIRECTIVES,
@@ -40,4 +36,13 @@ const DIRECTIVES = [];
   ]
 
 })
-export class CoreModule { }
+export class CoreModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: CoreModule,
+      providers: [
+        ...PROVIDERS,
+      ],
+    };
+  }
+}

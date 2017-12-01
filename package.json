@@ -13,7 +13,7 @@
     "preinstall": "npm run compiler"
   },
   "main": "dist/out-tsc/index.js",
-  "typing": "src/index.ts",
+  "typings": "src/index.ts",
   "private": false,
   "dependencies": {
     "@angular/animations": "^4.2.4",

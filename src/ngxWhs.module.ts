@@ -1,7 +1,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { CoreModule, SenceComponent } from './core';
+import { CoreModule, SenceComponent, PROVIDERS } from './core';
 
 import { SphereComponent, AmbientLightComponent,
         PointLightComponent, PlaneComponent } from './components';
@@ -27,4 +27,13 @@ const COMPONETS = [
     SenceComponent,
   ]
 })
-export class NgxWhsModule { }
+export class NgxWhsModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: NgxWhsModule,
+      providers: [
+        ...PROVIDERS,
+      ],
+    };
+  }
+}
