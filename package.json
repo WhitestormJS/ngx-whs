@@ -8,9 +8,10 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "compiler": "tsc"
   },
-  "main": "lib/",
+  "main": "dist/out-tsc/index.js",
   "typing": "src/index.ts",
   "private": false,
   "dependencies": {
