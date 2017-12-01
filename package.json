@@ -5,16 +5,22 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": " npm run clean:typescript && ngc && npm run rollup",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "compiler": "ngc",
-    "preinstall": "npm run compiler"
+    "rollup": "./node_modules/.bin/rollup -c rollup.config.js dist/ngx-whs.js -o dist/ngx-whs.umd.js",
+    "clean:typescript": "rimraf dist",
+    "preinstall": "npm run build"
   },
   "main": "dist/out-tsc/index.js",
   "typings": "src/index.ts",
   "private": false,
+  "peerDependencies": {
+    "@angular/common": ">=2.0.0",
+    "@angular/core": ">=2.0.0"
+  },
   "dependencies": {
     "@angular/animations": "^4.2.4",
     "@angular/common": "^4.2.4",
@@ -50,7 +56,11 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "node-sass": "^4.5.3",
     "protractor": "~5.1.2",
-    "rollup": "^0.50.0",
+    "rimraf": "^2.6.2",
+    "rollup": "^0.50.1",
+    "rollup-plugin-commonjs": "^8.2.6",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-uglify": "^2.0.1",
     "ts-node": "~3.2.0",
     "tslint": "~5.3.2",
     "tslint-language-service": "^0.9.6",

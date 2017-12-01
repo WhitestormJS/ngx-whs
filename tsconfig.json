@@ -1,14 +1,18 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "outDir": "./dist/out-tsc",
+    "outDir": "./dist",
     "sourceMap": true,
-    "declaration": false,
     "moduleResolution": "node",
-    "module": "umd",
+    "target": "es5",
+    "module": "es2015",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es5",
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "declaration": true,
+    "skipLibCheck": true,
+    "stripInternal": true,
     "typeRoots": [
       "node_modules/@types"
     ],
@@ -21,6 +25,10 @@
     ]
   },
   "files": [
-    "src/index.ts"
-  ]
+    "src/index"
+  ],
+  "buildOnSave": false,
+  "angularCompilerOptions": {
+    "skipTemplateCodegen": true
+  }
 }
