@@ -7,6 +7,8 @@ import { NgxWhsModule } from '../../ngxWhs.module';
 import { HelloWorldRoutingModule } from './helloworld-routing.module';
 import { HelloWorldComponent } from './helloworld.component';
 
+import { CustomPointLightComponent } from '../components';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,9 +17,11 @@ import { HelloWorldComponent } from './helloworld.component';
   ],
   exports: [
     HelloWorldComponent,
+    CustomPointLightComponent,
   ],
   declarations: [
     HelloWorldComponent,
+    CustomPointLightComponent,
   ],
 })
 export class HelloworldModule { }

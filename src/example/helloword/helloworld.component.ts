@@ -63,18 +63,5 @@ export class HelloWorldComponent {
       x: -Math.PI / 2
     }
   };
-
-  pointLightProps = {
-    light: {
-      intensity: 0.5,
-      distance: 100
-    },
-
-    shadow: {
-      fov: 90
-    },
-
-    position: new THREE.Vector3(0, 10, 10)
-  };
 }
 
