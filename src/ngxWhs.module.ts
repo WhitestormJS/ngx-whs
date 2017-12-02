@@ -10,12 +10,18 @@ import { CubeCameraComponent, OrthographicCameraComponent, PerspectiveCameraComp
   RingComponent, ShapeComponent, TetrahedronComponent, TextComponent, TorusComponent, TorusknotComponent, TubeComponent,
   } from './components';
 
-const COMPONETS = [
+
+const CORE_COMPONENT = [
   SenceComponent,
+  CameraComponent,
+  LightComponent,
+  MeshComponent,
   ComponentComponent,
+];
+
+const COMPONETS = [
 
   // camera
-  CameraComponent,
   CubeCameraComponent,
   OrthographicCameraComponent,
   PerspectiveCameraComponent,
@@ -63,6 +69,8 @@ const COMPONETS = [
   ],
   exports: [
     ...COMPONETS,
+
+    ...CORE_COMPONENT,
   ],
 })
 export class NgxWhsModule {

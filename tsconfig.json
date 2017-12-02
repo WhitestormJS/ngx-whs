@@ -22,6 +22,9 @@
       { "name": "tslint-language-service" }
     ]
   },
+  "files": [
+    "src/index.ts"
+  ],
   "buildOnSave": false,
   "angularCompilerOptions": {
     "skipTemplateCodegen": true

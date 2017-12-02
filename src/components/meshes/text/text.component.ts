@@ -12,13 +12,14 @@ export class TextComponent extends MeshComponent implements OnInit {
 
   _instance: Text;
 
-  @Input() params: TextParams = {};
+  @Input() params: TextParams;
 
   constructor() {
     super();
   }
 
   ngOnInit() {
+    console.log(this.params);
     this._instance = new Text(this.params);
   }
 }

@@ -20,6 +20,6 @@ export class CustomPointLightComponent extends PointLightComponent {
       fov: 90
     },
 
-    position: new THREE.Vector3(0, 10, 10)
+    position: new THREE.Vector3(0, 25, 30)
   };
 }

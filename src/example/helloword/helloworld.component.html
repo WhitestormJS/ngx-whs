@@ -5,14 +5,20 @@
     [id]="'c1'"
     [modules]="containerModules">
     <app-point-light #component></app-point-light>
-    <whs-plane
+    <whs-box
       #component
-      [params]="planeProps"></whs-plane>
+      [params]="planeProps"></whs-box>
     <whs-sphere
       #component
       [params]="sphereProps"></whs-sphere>
     <whs-ambient-light
       #component
       [params]="ambientLightProps"></whs-ambient-light>
+
+
+    <whs-text
+      #component
+      [params]="textPrams"
+      ></whs-text>
   </whs-sence>
 </div>
