@@ -1,4 +1,3 @@
-export * from './sphere';
-export * from './ambientLight';
-export * from './plane';
-export * from './pointLight';
+export * from './cameras';
+export * from './lights';
+export * from './meshes';

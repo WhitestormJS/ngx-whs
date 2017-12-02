@@ -1,15 +1,32 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { CoreModule, SenceComponent, PROVIDERS } from './core';
+import { CoreModule, SenceComponent, CameraComponent, ComponentComponent, LightComponent, MeshComponent, PROVIDERS } from './core';
 
-import { SphereComponent, AmbientLightComponent,
-        PointLightComponent, PlaneComponent } from './components';
+import { CubeCameraComponent, OrthographicCameraComponent, PerspectiveCameraComponent,
+  AmbientLightComponent, AreaLightComponent, DirectionalLightComponent, HemisphereLightComponent, PointLightComponent, SpotLightComponent,
+  PlaneComponent, SphereComponent } from './components';
 
 const COMPONETS = [
-  SphereComponent,
+  SenceComponent,
+  ComponentComponent,
+
+  // camera
+  CameraComponent,
+  CubeCameraComponent,
+  OrthographicCameraComponent,
+  PerspectiveCameraComponent,
+
+  // light
   AmbientLightComponent,
+  AreaLightComponent,
+  DirectionalLightComponent,
+  HemisphereLightComponent,
   PointLightComponent,
+  SpotLightComponent,
+
+  // mesh
+  SphereComponent,
   PlaneComponent,
 ];
 
@@ -23,8 +40,6 @@ const COMPONETS = [
   ],
   exports: [
     ...COMPONETS,
-
-    SenceComponent,
   ],
 })
 export class NgxWhsModule {

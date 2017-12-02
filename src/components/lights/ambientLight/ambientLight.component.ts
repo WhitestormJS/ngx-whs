@@ -1,6 +1,6 @@
 import { Component, Host, Optional, OnInit, Input, AfterViewInit, ViewChildren, QueryList } from '@angular/core';
 
-import { StateService, TYPE_ADDTO, SenceComponent, LightComponent } from '../../core';
+import { SenceComponent, LightComponent } from '../../../core';
 import { AmbientLight, AmbientLightParams } from 'whs';
 
 @Component({
@@ -14,7 +14,6 @@ export class AmbientLightComponent extends LightComponent implements OnInit {
   _instance: AmbientLight;
 
   constructor(
-    @Host() @Optional() private state: StateService,
     @Optional() private sence: SenceComponent,
     ) {
     super();

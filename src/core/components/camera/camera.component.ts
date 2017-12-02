@@ -23,7 +23,7 @@ export class CameraComponent extends ComponentComponent implements OnInit {
     this._instance = new WhsCameraComponent(this.params, this.defaults, this.instructions);
   }
 
-  build(): Object3D | CompositionError {
+  build() {
     return this._instance.build();
   }
 

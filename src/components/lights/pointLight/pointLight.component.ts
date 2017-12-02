@@ -3,7 +3,7 @@ import { Component, Host, Optional, OnInit, Input } from '@angular/core';
 import { PointLight, PointLightParams } from 'whs';
 
 
-import { StateService, TYPE_ADDTO, SenceComponent, LightComponent } from '../../core';
+import { StateService, TYPE_ADDTO, SenceComponent, LightComponent } from '../../../core';
 
 @Component({
   selector: 'whs-point-light',

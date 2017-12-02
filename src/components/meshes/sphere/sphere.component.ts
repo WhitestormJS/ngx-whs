@@ -2,7 +2,7 @@ import { Component, Host, Optional, OnInit, Input } from '@angular/core';
 
 import { Sphere, SphereParams } from 'whs';
 
-import { StateService, TYPE_ADDTO, SenceComponent, ComponentComponent } from '../../core';
+import { StateService, TYPE_ADDTO, SenceComponent, ComponentComponent } from '../../../core';
 
 
 @Component({
@@ -10,9 +10,9 @@ import { StateService, TYPE_ADDTO, SenceComponent, ComponentComponent } from '..
   template: '<div></div>',
 })
 export class SphereComponent extends ComponentComponent implements OnInit {
-  _instance;
+  _instance: Sphere;
 
-  @Input() public params: SphereParams;
+  @Input() params: SphereParams;
 
   constructor(@Host() @Optional() private state: StateService, @Optional() private sence: SenceComponent ) {
     super();

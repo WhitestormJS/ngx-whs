@@ -2,8 +2,7 @@ import { Component, Host, Optional, OnInit, Input } from '@angular/core';
 
 import { Plane, PlaneParams } from 'whs';
 
-
-import { StateService, TYPE_ADDTO, SenceComponent, ComponentComponent } from '../../core';
+import { StateService, TYPE_ADDTO, SenceComponent, ComponentComponent } from '../../../core';
 
 
 @Component({
