@@ -1,13 +1,12 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
     "outDir": "./dist",
     "moduleResolution": "node",
     "target": "es5",
     "module": "es2015",
-    "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "inlineSourceMap": true,
     "inlineSources": true,
     "skipLibCheck": true,
@@ -23,9 +22,6 @@
       { "name": "tslint-language-service" }
     ]
   },
-  "files": [
-    "src/index"
-  ],
   "buildOnSave": false,
   "angularCompilerOptions": {
     "skipTemplateCodegen": true
