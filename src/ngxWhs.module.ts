@@ -5,7 +5,10 @@ import { CoreModule, SenceComponent, CameraComponent, ComponentComponent, LightC
 
 import { CubeCameraComponent, OrthographicCameraComponent, PerspectiveCameraComponent,
   AmbientLightComponent, AreaLightComponent, DirectionalLightComponent, HemisphereLightComponent, PointLightComponent, SpotLightComponent,
-  PlaneComponent, SphereComponent } from './components';
+  PlaneComponent, SphereComponent, BoxComponent, ConeComponent, CylinderComponent, DodecahedronComponent, ExtrudeComponent, GroupComponent,
+  IcosahedronComponent, ImporterComponent, LatheComponent, LineComponent, OctahedronComponent, ParametricComponent, PolyhedronComponent,
+  RingComponent, ShapeComponent, TetrahedronComponent, TextComponent, TorusComponent, TorusknotComponent, TubeComponent,
+  } from './components';
 
 const COMPONETS = [
   SenceComponent,
@@ -28,6 +31,26 @@ const COMPONETS = [
   // mesh
   SphereComponent,
   PlaneComponent,
+  BoxComponent,
+  ConeComponent,
+  CylinderComponent,
+  DodecahedronComponent,
+  ExtrudeComponent,
+  GroupComponent,
+  IcosahedronComponent,
+  ImporterComponent,
+  LatheComponent,
+  LineComponent,
+  OctahedronComponent,
+  ParametricComponent,
+  PolyhedronComponent,
+  RingComponent,
+  ShapeComponent,
+  TetrahedronComponent,
+  TextComponent,
+  TorusComponent,
+  TorusknotComponent,
+  TubeComponent,
 ];
 
 @NgModule({
