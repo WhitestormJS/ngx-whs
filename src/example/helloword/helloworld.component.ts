@@ -12,8 +12,6 @@ import * as THREE from 'three';
 })
 export class HelloWorldComponent {
 
-
-
   containerModules = [
     new SceneModule(),
     new WHS.DefineModule('camera', new PerspectiveCamera({
