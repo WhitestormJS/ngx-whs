@@ -7,7 +7,7 @@ import { StateService, TYPE_ADDTO, SenceComponent, ComponentComponent } from '..
 
 @Component({
   selector: 'whs-plane',
-  template: '<div></div>',
+  template: '<ng-content></ng-content>',
 })
 export class PlaneComponent extends ComponentComponent implements OnInit {
 

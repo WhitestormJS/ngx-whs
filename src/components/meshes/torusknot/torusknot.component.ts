@@ -6,7 +6,7 @@ import { MeshComponent } from '../../../core';
 
 @Component({
   selector: 'whs-torusknot',
-  template: '<div></div>',
+  template: '<ng-content></ng-content>',
 })
 export class TorusknotComponent extends MeshComponent implements OnInit {
 

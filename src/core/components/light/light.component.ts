@@ -6,7 +6,7 @@ import { ComponentComponent } from '../component';
 
 @Component({
   selector: 'whs-light',
-  template: '<div></div>',
+  template: '<ng-content></ng-content>',
 })
 export class LightComponent extends ComponentComponent implements OnInit {
   @Input() params: LightComponentParams | object;

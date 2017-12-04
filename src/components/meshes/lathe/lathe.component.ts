@@ -6,7 +6,7 @@ import { MeshComponent } from '../../../core';
 
 @Component({
   selector: 'whs-lathe',
-  template: '<div></div>',
+  template: '<ng-content></ng-content>',
 })
 export class LatheComponent extends MeshComponent implements OnInit {
 

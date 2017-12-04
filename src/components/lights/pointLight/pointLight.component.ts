@@ -7,7 +7,7 @@ import { StateService, TYPE_ADDTO, SenceComponent, LightComponent } from '../../
 
 @Component({
   selector: 'whs-point-light',
-  template: '<div></div>',
+  template: '<ng-content></ng-content>',
 })
 export class PointLightComponent extends LightComponent implements OnInit {
 

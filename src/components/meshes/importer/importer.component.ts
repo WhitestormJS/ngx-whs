@@ -7,7 +7,7 @@ import { MeshComponent } from '../../../core';
 // confusing
 @Component({
   selector: 'whs-importer',
-  template: '<div></div>',
+  template: '<ng-content></ng-content>',
 })
 export class ImporterComponent extends MeshComponent implements OnInit {
 

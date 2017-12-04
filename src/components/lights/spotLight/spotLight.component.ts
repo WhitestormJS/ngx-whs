@@ -6,7 +6,7 @@ import { LightComponent } from '../../../core';
 
 @Component({
   selector: 'whs-spot-light',
-  template: '<div></div>',
+  template: '<ng-content></ng-content>',
 })
 export class SpotLightComponent extends LightComponent implements OnInit {
 

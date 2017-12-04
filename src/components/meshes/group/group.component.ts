@@ -7,7 +7,7 @@ import { MeshComponent } from '../../../core';
 // confusing
 @Component({
   selector: 'whs-group',
-  template: '<div></div>',
+  template: '<ng-content></ng-content>',
 })
 export class GroupComponent extends MeshComponent implements OnInit {
 

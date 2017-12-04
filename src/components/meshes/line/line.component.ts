@@ -6,7 +6,7 @@ import { MeshComponent } from '../../../core';
 
 @Component({
   selector: 'whs-line',
-  template: '<div></div>',
+  template: '<ng-content></ng-content>',
 })
 export class LineComponent extends MeshComponent implements OnInit {
 

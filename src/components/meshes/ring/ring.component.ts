@@ -6,7 +6,7 @@ import { MeshComponent } from '../../../core';
 
 @Component({
   selector: 'whs-ring',
-  template: '<div></div>',
+  template: '<ng-content></ng-content>',
 })
 export class RingComponent extends MeshComponent implements OnInit {
 

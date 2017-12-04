@@ -6,7 +6,7 @@ import { MeshComponent } from '../../../core';
 
 @Component({
   selector: 'whs-icosahedron',
-  template: '<div></div>',
+  template: '<ng-content></ng-content>',
 })
 export class IcosahedronComponent extends MeshComponent implements OnInit {
 

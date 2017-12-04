@@ -6,7 +6,7 @@ import { MeshComponent } from '../../../core';
 
 @Component({
   selector: 'whs-tube',
-  template: '<div></div>',
+  template: '<ng-content></ng-content>',
 })
 export class TubeComponent extends MeshComponent implements OnInit {
 

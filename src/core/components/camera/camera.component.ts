@@ -7,7 +7,7 @@ import { ComponentComponent } from '../component';
 
 @Component({
   selector: 'whs-camera',
-  template: '<div></div>',
+  template: '<ng-content></ng-content>',
 })
 export class CameraComponent extends ComponentComponent implements OnInit {
 

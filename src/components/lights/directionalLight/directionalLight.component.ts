@@ -6,7 +6,7 @@ import { LightComponent } from '../../../core';
 
 @Component({
   selector: 'whs-directional-light',
-  template: '<div></div>',
+  template: '<ng-content></ng-content>',
 })
 export class DirectionalLightComponent extends LightComponent implements OnInit {
 

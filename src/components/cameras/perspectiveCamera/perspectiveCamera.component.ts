@@ -6,7 +6,7 @@ import { CameraComponent } from '../../../core';
 
 @Component({
   selector: 'whs-perspective-camera',
-  template: '<div></div>',
+  template: '<ng-content></ng-content>',
 })
 export class PerspectiveCameraComponent extends CameraComponent implements OnInit {
 

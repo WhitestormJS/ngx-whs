@@ -7,7 +7,7 @@ import { CameraComponent } from '../../../core';
 
 @Component({
   selector: 'whs-cube-camera',
-  template: '<div></div>',
+  template: '<ng-content></ng-content>',
 })
 export class CubeCameraComponent extends CameraComponent implements OnInit {
 

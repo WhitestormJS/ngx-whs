@@ -6,7 +6,7 @@ import { MeshComponent } from '../../../core';
 
 @Component({
   selector: 'whs-box',
-  template: '<div></div>',
+  template: '<ng-content></ng-content>',
 })
 export class BoxComponent extends MeshComponent implements OnInit {
 

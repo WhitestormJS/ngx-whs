@@ -6,7 +6,7 @@ import { LightComponent } from '../../../core';
 
 @Component({
   selector: 'whs-area-light',
-  template: '<div></div>',
+  template: '<ng-content></ng-content>',
 })
 export class AreaLightComponent extends LightComponent implements OnInit {
 

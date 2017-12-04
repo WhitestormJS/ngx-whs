@@ -6,7 +6,7 @@ import { MeshComponent } from '../../../core';
 
 @Component({
   selector: 'whs-extrude',
-  template: '<div></div>',
+  template: '<ng-content></ng-content>',
 })
 export class ExtrudeComponent extends MeshComponent implements OnInit {
 

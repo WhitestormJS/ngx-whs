@@ -5,7 +5,7 @@ import { AmbientLight, AmbientLightParams } from 'whs';
 
 @Component({
   selector: 'whs-ambient-light',
-  template: '<div></div>',
+  template: '<ng-content></ng-content>',
 })
 export class AmbientLightComponent extends LightComponent implements OnInit {
 

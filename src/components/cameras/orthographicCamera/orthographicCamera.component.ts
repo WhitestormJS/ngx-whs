@@ -6,7 +6,7 @@ import { CameraComponent } from '../../../core';
 
 @Component({
   selector: 'whs-orthographic-camera',
-  template: '<div></div>',
+  template: '<ng-content></ng-content>',
 })
 export class OrthographicCameraComponent extends CameraComponent implements OnInit {
 

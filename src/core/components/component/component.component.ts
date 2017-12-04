@@ -15,7 +15,7 @@ export const ComponentInterfaceToken = new InjectionToken<ComponentInterface>('C
 
 @Component({
   selector: 'whs-component',
-  template: '<div></div>',
+  template: '<ng-content></ng-content>',
 })
 export class ComponentComponent implements OnInit, AfterViewInit, AfterContentInit, ComponentInterface {
   @Input() params: object;
