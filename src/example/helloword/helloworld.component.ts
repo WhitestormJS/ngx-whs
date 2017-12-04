@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 
 import {  SceneModule, RenderingModule, ResizeModule, PerspectiveCamera, StateModule, OrbitControlsModule, TextParams, Text, } from 'whs';
+
 import * as WHS from 'whs/build/whs';
 import * as THREE from 'three';
 import { WorldModule, SphereModule, BoxModule } from 'physics-module-ammonext';
@@ -44,9 +45,9 @@ export class HelloWorldComponent {
 
   sphereProps = {
     geometry: {
-      radius: 5,
-      widthSegments: 32,
-      heightSegments: 32
+      width: 5,
+      height: 5,
+      depth: 5,
     },
     material: new THREE.MeshPhongMaterial({
       color: 0xEFEFEF
@@ -57,7 +58,7 @@ export class HelloWorldComponent {
         restitution: 1
       }),
     ],
-    position: [0, 6, 0],
+    position: [0, 3, 0],
   };
 
   ambientLightProps = {
@@ -114,5 +115,13 @@ export class HelloWorldComponent {
       receive: false,
     }
   };
+
+
+  loop() {
+    return (component, clock) => {
+      component._instance.rotation.x += 0.02;
+
+    };
+  }
 }
 

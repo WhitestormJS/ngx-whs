@@ -8,17 +8,20 @@
     <whs-box
       #component
       [params]="planeProps"></whs-box>
-    <whs-sphere
+    <whs-box
       #component
-      [params]="sphereProps"></whs-sphere>
+      [params]="sphereProps"></whs-box>
     <whs-ambient-light
       #component
       [params]="ambientLightProps"></whs-ambient-light>
 
-
     <whs-text
       #component
+      whsLoop
+      [loop]="loop()"
       [params]="textPrams"
       ></whs-text>
+
+
   </whs-sence>
 </div>

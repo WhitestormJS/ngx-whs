@@ -19,7 +19,6 @@ export class TextComponent extends MeshComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.params);
     this._instance = new Text(this.params);
   }
 }

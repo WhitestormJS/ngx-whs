@@ -11,7 +11,7 @@ import { ComponentComponent } from '../component';
 
 @Component({
   selector: 'whs-sence',
-  template: '<div #instance></div>',
+  template: '<div #instance><ng-content></ng-content></div>',
   providers: [ StateService ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -60,10 +60,10 @@ export class SenceComponent implements OnInit, AfterViewInit, AfterContentInit {
   ngAfterContentInit() {
     this.attach();
     this.build();
-
   }
 
   ngAfterViewInit() {
+
   }
 
   private attach() {

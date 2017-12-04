@@ -1,18 +1,23 @@
-import { Component, Input, OnInit, QueryList, ViewChildren, AfterViewInit, AfterContentInit, ContentChildren } from '@angular/core';
+import { Component, Input, OnInit, QueryList, ViewChildren, AfterViewInit, AfterContentInit, ContentChildren,
+  InjectionToken } from '@angular/core';
 
 import { Component as WhsComponent, App } from 'whs';
 
 import { StateService } from '../../services';
 
 import { SenceComponent } from '../sence';
-import { inject } from '@angular/core/testing';
 
+export interface ComponentInterface {
+  _instance: any;
+}
+
+export const ComponentInterfaceToken = new InjectionToken<ComponentInterface>('ComponentInterfaceToken');
 
 @Component({
   selector: 'whs-component',
   template: '<div></div>',
 })
-export class ComponentComponent implements OnInit, AfterViewInit, AfterContentInit {
+export class ComponentComponent implements OnInit, AfterViewInit, AfterContentInit, ComponentInterface {
   @Input() params: object;
   @Input() defaults: object;
   @Input() instructions: object;

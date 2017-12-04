@@ -1,7 +1,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { CoreModule, SenceComponent, CameraComponent, ComponentComponent, LightComponent, MeshComponent,
+import { CoreModule, SenceComponent, CameraComponent, ComponentComponent, LightComponent, MeshComponent, LoopDirective,
   PROVIDERS } from './core';
 
 import { CubeCameraComponent, OrthographicCameraComponent, PerspectiveCameraComponent,
@@ -18,6 +18,8 @@ const CORE_COMPONENT = [
   LightComponent,
   MeshComponent,
   ComponentComponent,
+
+  LoopDirective,
 ];
 
 const COMPONETS = [
