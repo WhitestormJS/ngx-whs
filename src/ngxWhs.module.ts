@@ -1,7 +1,8 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { CoreModule, SenceComponent, CameraComponent, ComponentComponent, LightComponent, MeshComponent, PROVIDERS } from './core';
+import { CoreModule, SenceComponent, CameraComponent, ComponentComponent, LightComponent, MeshComponent,
+  PROVIDERS } from './core';
 
 import { CubeCameraComponent, OrthographicCameraComponent, PerspectiveCameraComponent,
   AmbientLightComponent, AreaLightComponent, DirectionalLightComponent, HemisphereLightComponent, PointLightComponent, SpotLightComponent,
