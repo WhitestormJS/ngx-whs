@@ -12,12 +12,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { CustomPointLightComponent, MenuComponent } from './components';
 
 import { HelloWorldComponent } from './helloword';
-
+import { MouseComponent } from './mouse';
 
 const COMPONENTS = [
   MenuComponent,
+  CustomPointLightComponent,
   HelloWorldComponent,
-  CustomPointLightComponent
+  MouseComponent,
 ];
 
 

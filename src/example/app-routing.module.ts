@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-
 import { HelloWorldComponent } from './helloword';
+import { MouseComponent } from './mouse';
 
 export interface Menu {
   content: string;
@@ -18,7 +18,16 @@ export const children: Routes = [
     component: HelloWorldComponent,
     data: {
       content: 'hello world',
-      link: '/example/helloworld',
+      link: 'helloworld',
+      icon: 'anticon anticon-dot-chart'
+    }
+  },
+  {
+    path: 'mouse',
+    component: MouseComponent,
+    data: {
+      content: 'mouse',
+      link: 'mouse',
       icon: 'anticon anticon-dot-chart'
     }
   }
@@ -28,16 +37,9 @@ export const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'example/helloworld',
+    redirectTo: 'helloworld',
   },
-  {
-    path: '**',
-    redirectTo: 'example/helloworld',
-  },
-  {
-    path: 'example',
-    children,
-  }
+  ...children,
 ];
 
 @NgModule({

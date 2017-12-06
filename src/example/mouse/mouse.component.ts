@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { $colors, getBoxPlane, getBasicLights } from '../global';
 
 import {
   SceneModule, RenderingModule, ResizeModule, PerspectiveCamera, StateModule, OrbitControlsModule, TextParams, Text,
@@ -12,22 +11,13 @@ import * as THREE from 'three';
 
 import { WorldModule, SphereModule, BoxModule, PlaneModule } from 'physics-module-ammonext';
 
-
-
-// function resolveFront(path): Promise<Font> {
-//   return new Promise(resolve => {
-//     (new THREE.FontLoader()).load(path, resolve);
-//   });
-// }
-
+import { $colors, getBoxPlane, getBasicLights } from '../global';
 
 @Component({
-  selector: 'whs-helloworld',
-  templateUrl: './helloworld.component.html',
-  styleUrls: ['./helloworld.component.scss'],
+  selector: 'app-mouse',
+  templateUrl: './mouse.component.html'
 })
-export class HelloWorldComponent {
-
+export class MouseComponent {
   containerModules = [
     new SceneModule(),
     new WHS.DefineModule('camera', new PerspectiveCamera({
@@ -76,7 +66,28 @@ export class HelloWorldComponent {
 
   ambientLightParams = getBasicLights().ambientLight;
 
+  mouse;
   constructor() {
+    this.mouse = new VirtualMouseModule();
+    this.containerModules.push(this.mouse);
+  }
+
+  sphereReady(sphere) {
+    this.mouse.track(sphere);
+
+    sphere.on('mouseover', () => {
+      sphere.material.color.set(0xffff00);
+      console.log('mouseover');
+    });
+    sphere.on('mousemove', () => {
+      console.log('mousemove');
+    });
+    sphere.on('mouseout', () => {
+      sphere.material.color.set($colors.mesh);
+      console.log('mouseout');
+    });
+    sphere.on('click', () => {
+      alert('click!');
+    });
   }
 }
-
