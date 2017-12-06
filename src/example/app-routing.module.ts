@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HelloWorldComponent } from './helloword';
 import { MouseComponent } from './mouse';
+import { TextComponent } from './text';
 
 export interface Menu {
   content: string;
@@ -30,6 +31,15 @@ export const children: Routes = [
       link: 'mouse',
       icon: 'anticon anticon-dot-chart'
     }
+  },
+  {
+    path: 'text',
+    component: TextComponent,
+    data: {
+      content: 'text',
+      link: 'text',
+      icon: 'anticon anticon-dot-chart'
+    }
   }
 ];
 
@@ -40,10 +50,16 @@ export const routes: Routes = [
     redirectTo: 'helloworld',
   },
   ...children,
+  {
+    path: '**',
+    redirectTo: 'helloworld'
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    useHash: true
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

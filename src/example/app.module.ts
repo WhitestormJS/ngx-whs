@@ -13,12 +13,15 @@ import { CustomPointLightComponent, MenuComponent } from './components';
 
 import { HelloWorldComponent } from './helloword';
 import { MouseComponent } from './mouse';
+import { TextComponent } from './text';
 
 const COMPONENTS = [
   MenuComponent,
   CustomPointLightComponent,
+
   HelloWorldComponent,
   MouseComponent,
+  TextComponent,
 ];
 
 

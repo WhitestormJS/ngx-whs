@@ -1,6 +1,6 @@
 import { Component, ComponentRef, ElementRef, OnInit, Input, OnChanges, AfterViewInit, AfterViewChecked, ViewChild,
   TemplateRef, SkipSelf, Optional, ChangeDetectionStrategy, ViewChildren, QueryList, ContentChildren, AfterContentInit,
-  } from '@angular/core';
+  OnDestroy, } from '@angular/core';
 import * as THREE from 'three';
 import { App, ElementModule, SceneModule, RenderingModule,  Component as WhsComponentNative } from 'whs';
 
@@ -23,7 +23,7 @@ import { ComponentComponent } from '../component';
     `
   ]
 })
-export class SenceComponent implements OnInit, AfterViewInit, AfterContentInit {
+export class SenceComponent implements OnInit, AfterViewInit, AfterContentInit, OnDestroy {
   _instance: App;
 
   @ViewChild('instance') private instance: ElementRef;
@@ -73,6 +73,10 @@ export class SenceComponent implements OnInit, AfterViewInit, AfterContentInit {
 
   ngAfterViewInit() {
 
+  }
+
+  ngOnDestroy() {
+    this.instance.nativeElement.remove();
   }
 
   private attach() {

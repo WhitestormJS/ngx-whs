@@ -73,7 +73,6 @@ export const appModules = ( // appModules(camera, rendering);
   useControls = true
 ) => (
     [
-      new WHS.ElementModule(),
       new WHS.SceneModule(),
       new WHS.DefineModule('camera', new WHS.PerspectiveCamera(Object.assign(camera, { fov: 75 }))),
       new WHS.RenderingModule(rendering, { shadow: true }),
