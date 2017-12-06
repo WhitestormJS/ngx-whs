@@ -15,7 +15,7 @@ export class LoopDirective implements OnInit, AfterContentInit {
 
   @Input() useLock = true;
 
-  @Input() loop: Function = (clock: Clock) => {};
+  @Input() whsLoop: Function = (clock: Clock) => {};
 
   constructor(
     private _view: ViewContainerRef,
@@ -30,14 +30,13 @@ export class LoopDirective implements OnInit, AfterContentInit {
     const hostComponent = (<any>this._view)._data.componentView.component;
 
     this._loop = new Loop((clock) => {
-      if (!hostComponent._instance.isDeffered) {
-        this.loop(hostComponent, clock, this.secen);
-      }
+      hostComponent._instance.defer(() => {
+        this.whsLoop(hostComponent, clock, this.secen);
+      });
     }, this.useLock);
   }
 
   ngAfterContentInit() {
-    console.log('loop start');
     this._loop.start(this.secen._instance);
   }
 

@@ -4,12 +4,15 @@
   <whs-sence
     [id]="'c1'"
     [modules]="containerModules">
-    <app-point-light #component></app-point-light>
+    <app-point-light
+      #component></app-point-light>
+
     <whs-box
       #component
       [params]="planeProps"></whs-box>
     <whs-box
       #component
+      [whsLoop]="loop()"
       [params]="sphereProps"></whs-box>
     <whs-ambient-light
       #component
@@ -17,8 +20,7 @@
 
     <whs-text
       #component
-      whsLoop
-      [loop]="loop()"
+      [whsLoop]="loop()"
       [params]="textPrams"
       ></whs-text>
 
