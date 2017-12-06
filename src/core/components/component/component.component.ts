@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, QueryList, ViewChildren, AfterViewInit, AfterContentInit, ContentChildren,
-  InjectionToken } from '@angular/core';
+  InjectionToken, EventEmitter, Output } from '@angular/core';
 
 import { Component as WhsComponent, App } from 'whs';
 
@@ -24,6 +24,8 @@ export class ComponentComponent implements OnInit, AfterViewInit, AfterContentIn
 
   _instance: WhsComponent;
 
+  @Output() ready = new EventEmitter<WhsComponent>();
+
   @ContentChildren('component') components: QueryList<ComponentComponent>;
 
   constructor () {
@@ -35,6 +37,7 @@ export class ComponentComponent implements OnInit, AfterViewInit, AfterContentIn
 
   ngAfterContentInit() {
     this.attach();
+    this.ready.emit(this._instance);
   }
 
   ngAfterViewInit() {

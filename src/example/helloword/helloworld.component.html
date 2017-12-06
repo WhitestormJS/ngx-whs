@@ -1,29 +1,22 @@
-<h1>hello world</h1>
 
 <div class="row">
   <whs-sence
     [id]="'c1'"
     [modules]="containerModules">
-    <app-point-light
-      #component></app-point-light>
+    <whs-sphere
+      #component
+      [params]="sphereParams"></whs-sphere>
 
-    <whs-box
+    <whs-plane
       #component
-      [params]="planeProps"></whs-box>
-    <whs-box
-      #component
-      [whsLoop]="loop()"
-      [params]="sphereProps"></whs-box>
+      [params]="planeParams"></whs-plane>
+
     <whs-ambient-light
       #component
-      [params]="ambientLightProps"></whs-ambient-light>
+      [params]="{ intensity: 0.4 }"></whs-ambient-light>
 
-    <whs-text
+    <whs-point-light
       #component
-      [whsLoop]="loop()"
-      [params]="textPrams"
-      ></whs-text>
-
-
+      [params]="pointLightParams"></whs-point-light>
   </whs-sence>
 </div>

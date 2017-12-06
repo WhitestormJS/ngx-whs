@@ -35,6 +35,7 @@ export class SenceComponent implements OnInit, AfterViewInit, AfterContentInit {
     }
 
   private createContainer() {
+    console.log(this.modules);
     this._instance = new App([
       new ElementModule(this.instance.nativeElement),
       ...this.modules,

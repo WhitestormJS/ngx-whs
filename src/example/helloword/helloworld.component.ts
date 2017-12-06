@@ -1,13 +1,20 @@
 import { Component } from '@angular/core';
 
 
-import {  SceneModule, RenderingModule, ResizeModule, PerspectiveCamera, StateModule, OrbitControlsModule, TextParams, Text, } from 'whs';
+import {
+  SceneModule, RenderingModule, ResizeModule, PerspectiveCamera, StateModule, OrbitControlsModule, TextParams, Text,
+  VirtualMouseModule, BoxParams,
+} from 'whs';
 
 import * as WHS from 'whs/build/whs';
+
+import DragModule from 'whs/modules/DragModule';
 import * as THREE from 'three';
-import { WorldModule, SphereModule, BoxModule } from 'physics-module-ammonext';
+
+import { WorldModule, SphereModule, BoxModule, PlaneModule } from 'physics-module-ammonext';
 
 import { Font } from 'three';
+
 
 function resolveFront(path): Promise<Font> {
   return new Promise(resolve => {
@@ -19,7 +26,7 @@ function resolveFront(path): Promise<Font> {
 @Component({
   selector: 'whs-helloworld',
   templateUrl: './helloworld.component.html',
-  styleUrls: [ './helloworld.component.scss' ],
+  styleUrls: ['./helloworld.component.scss'],
 })
 export class HelloWorldComponent {
 
@@ -38,90 +45,66 @@ export class HelloWorldComponent {
         },
       }
     }, { shadow: true }), // Apply THREE.WebGLRenderer
+    new WorldModule({
+      ammo: 'https://whs-dev.surge.sh/examples/assets/ammo.js',
+    }),
     new OrbitControlsModule(),
     new ResizeModule(), // Make it resizable.
-    new StateModule()
   ];
 
-  sphereProps = {
+  sphereParams = { // Create sphere component.
     geometry: {
-      width: 5,
-      height: 5,
-      depth: 5,
+      radius: 3,
+      widthSegments: 32,
+      heightSegments: 32
     },
-    material: new THREE.MeshPhongMaterial({
-      color: 0xEFEFEF
-    }),
+
     modules: [
       new SphereModule({
-        mass: 10,
-        restitution: 1
-      }),
+        mass: 10
+      })
     ],
-    position: [0, 3, 0],
+
+    material: new THREE.MeshPhongMaterial({
+      color: 0xF2F2F2
+    }),
+    position: [0, 100, 0]
   };
 
-  ambientLightProps = {
-    light: {
-      intensity: 0.5
-    }
-  };
 
-  planeProps = {
+  planeParams = {
     geometry: {
       width: 100,
-      height: 100,
-      depth: 1,
+      height: 100
     },
 
-    material: new THREE.MeshPhongMaterial({color: 0x447F8B}),
-
     modules: [
-      new BoxModule({
+      new PlaneModule({
         mass: 0
       })
     ],
 
+    material: new THREE.MeshPhongMaterial({ color: 0x447F8B }),
+
     rotation: {
       x: -Math.PI / 2
-    },
-    shadow: {
-      receive: true,
-      cast: false,
     }
   };
 
+  pointLightParams = {
+    intensity: 0.5,
+    distance: 100,
 
-  textPrams: TextParams = {
-    font: resolveFront('http://site.local.com:8080/assets/gentilis_bold.typeface.json'),
-    geometry: {
-      size: 5,
-      height: 3,
-      curveSegments: 6
-    },
-    material: new THREE.MeshPhongMaterial({
-      color: 0x3B8FFB
+    shadow: Object.assign({
+      fov: 90
     }),
-    position: {
-      x: -18,
-      y: 15,
-      z: 10,
-    },
-    rotation: {
-      x: -Math.PI / 9
-    },
-    shadow: {
-      cast: true,
-      receive: false,
-    }
+
+    position: [0, 10, 10]
   };
 
-
-  loop() {
-    return (component, clock) => {
-      component._instance.rotation.x += 0.02;
-
-    };
+  constructor() {
+    this.mouse = new VirtualMouseModule();
+    this.containerModules.push(this.mouse);
   }
 }
 
