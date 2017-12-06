@@ -2,7 +2,29 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 
-const routes: Routes = [
+import { HelloWorldComponent } from './helloword';
+
+export interface Menu {
+  content: string;
+  icon?: string;
+  link: string;
+  selected?: boolean;
+  children?: Menu[];
+}
+
+export const children: Routes = [
+  {
+    path: 'helloworld',
+    component: HelloWorldComponent,
+    data: {
+      content: 'hello world',
+      link: '/example/helloworld',
+      icon: 'anticon anticon-dot-chart'
+    }
+  }
+];
+
+export const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
@@ -14,12 +36,7 @@ const routes: Routes = [
   },
   {
     path: 'example',
-    children: [
-      {
-        path: 'helloworld',
-        loadChildren: './helloword/helloworld.module.ts#HelloworldModule',
-      }
-    ]
+    children,
   }
 ];
 

@@ -1,0 +1,30 @@
+<ng-container *ngFor="let menu of menus">
+
+  <ng-template *ngIf="menu.hasSub">
+    adasdasdasd
+  </ng-template>
+
+  <ng-template *ngIf="menu.children;then content else another"></ng-template>
+
+  <ng-template #content>
+    <li nz-submenu>
+        <span title>
+          <i [class]="menu.icon"></i>
+          <span class="nav-text">{{ menu.content }}</span>
+        </span>
+        <ul>
+          <whs-menu [menus]="menu.children"></whs-menu>
+        </ul>
+      </li>
+  </ng-template>
+
+  <ng-template #another>
+    <li nz-menu-item [routerLink]="menu.link" [routerLinkActive]="'ant-menu-item-selected'">
+      <span title >
+        <i [class]="menu.icon"></i>
+        <span class="nav-text">{{ menu.content }}</span>
+      </span>
+    </li>
+  </ng-template>
+
+</ng-container>

@@ -11,9 +11,17 @@ import { ComponentComponent } from '../component';
 
 @Component({
   selector: 'whs-sence',
-  template: '<div #instance><ng-content></ng-content></div>',
+  template: '<div #instance class="whs-fullScreen"><ng-content></ng-content></div>',
   providers: [ StateService ],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  styles: [
+    `
+      :host ::ng-deep .whs-fullScreen {
+        height: 100%;
+        weight: 100%;
+      }
+    `
+  ]
 })
 export class SenceComponent implements OnInit, AfterViewInit, AfterContentInit {
   _instance: App;

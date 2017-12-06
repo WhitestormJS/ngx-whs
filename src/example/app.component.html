@@ -1,2 +1,18 @@
-<whs-helloworld></whs-helloworld>
+<nz-layout class="page">
 
+  <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
+      <i class="anticon trigger" [class.anticon-menu-fold]="!isCollapsed" [class.anticon-menu-unfold]="isCollapsed" (click)="isCollapsed=!isCollapsed"></i>
+
+    <ul nz-menu [nzTheme]="'dark'" [nzMode]="isCollapsed?'vertical':'inline'">
+        <whs-menu [menus]="menus"></whs-menu>
+    </ul>
+  </nz-sider>
+
+
+
+  <nz-layout>
+    <nz-content style="margin: 0; height: 100%">
+      <router-outlet></router-outlet>
+    </nz-content>
+  </nz-layout>
+</nz-layout>

@@ -1,1 +1,1 @@
-export * from './helloworld.module';
+export * from './helloworld.component';
