@@ -5,6 +5,8 @@ import { HelloWorldComponent } from './helloword';
 import { MouseComponent } from './mouse';
 import { TextComponent } from './text';
 import { TerrainComponent } from './terrain';
+import { SaturnComponent } from './saturn';
+
 
 export interface Menu {
   content: string;
@@ -39,6 +41,15 @@ export const children: Routes = [
     data: {
       content: 'text',
       link: 'text',
+      icon: 'anticon anticon-dot-chart'
+    }
+  },
+  {
+    path: 'saturn',
+    component: SaturnComponent,
+    data: {
+      content: 'saturn',
+      link: 'saturn',
       icon: 'anticon anticon-dot-chart'
     }
   },

@@ -1,0 +1,24 @@
+<whs-sence [modules]="containerModules">
+  <whs-ambient-light #component [params]="ambientLightParams"></whs-ambient-light>
+  <whs-directional-light #component [params]="directionalLightParams"></whs-directional-light>
+  <whs-group
+    #component
+    [params]="spaceParams">
+
+    <whs-tetrahedron
+      #component
+      [whsLoop]="service.planetLoop()"
+      [params]="planetParams"></whs-tetrahedron>
+
+    <whs-group #component>
+      <ng-container *ngFor="let particle of particles">
+        <whs-box #component *ngIf="particle.type === 'Box'" [params]="particle.params" [whsLoop]="service.particleLoop()" (ready)="service.particleReady($event)"></whs-box>
+        <whs-cylinder #component *ngIf="particle.type === 'Cylinder'" [params]="particle.params" [whsLoop]="service.particleLoop()" (ready)="service.particleReady($event)"></whs-cylinder>
+        <whs-dodecahedron #component *ngIf="particle.type === 'Dodecahedron'" [params]="particle.params" [whsLoop]="service.particleLoop()" (ready)="service.particleReady($event)"></whs-dodecahedron>
+        <whs-sphere #component *ngIf="particle.type === 'Sphere'" [params]="particle.params" [whsLoop]="service.particleLoop()" (ready)="service.particleReady($event)"></whs-sphere>
+      </ng-container>
+    </whs-group>
+
+  </whs-group>
+
+</whs-sence>

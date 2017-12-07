@@ -15,6 +15,7 @@ import { HelloWorldComponent } from './helloword';
 import { MouseComponent } from './mouse';
 import { TextComponent } from './text';
 import { TerrainComponent } from './terrain';
+import { SaturnComponent } from './saturn';
 
 const COMPONENTS = [
   MenuComponent,
@@ -22,7 +23,8 @@ const COMPONENTS = [
   HelloWorldComponent,
   MouseComponent,
   TextComponent,
-  TerrainComponent
+  TerrainComponent,
+  SaturnComponent,
 ];
 
 
