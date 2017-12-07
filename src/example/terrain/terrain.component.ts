@@ -16,7 +16,7 @@ export class TerrainComponent {
 
   containerModules = [
     ...appModules({
-      position: new Vector3(0, 10, 200),
+      position: new Vector3(0, 10, 100),
       far: 200,
     }),
   ];
@@ -36,14 +36,13 @@ export class TerrainComponent {
       color: $colors.mesh,
       side: DoubleSide
     }),
-    position: {
-      x: -40,
-      y: -30,
-      z: -30,
-    },
 
     modules: [
-
+      new HeightfieldModule({
+        mass: 0,
+        size: new Vector2(40, 40),
+        autoAlign: true
+      })
     ]
   };
 
@@ -85,11 +84,7 @@ export class TerrainComponent {
 
   ready(instance) {
     instance.defer(() => {
-      instance.module(new HeightfieldModule({
-        mass: 0,
-        size: new Vector2(40, 40),
-        autoAlign: true
-      }));
+      instance.applyModule();
       console.log(instance);
     });
   }
