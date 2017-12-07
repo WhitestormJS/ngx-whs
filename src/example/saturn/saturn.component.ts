@@ -27,7 +27,7 @@ export class SaturnComponent {
     intensity: 2
   };
 
-
+  textParams;
   containerModules;
   directionalLightParams;
   planetParams;
@@ -38,6 +38,7 @@ export class SaturnComponent {
     this.containerModules = this.service.containerModules;
     this.planetParams = this.service.planetParams;
     this.directionalLightParams = this.service.directionalLight;
+    this.textParams = this.service.textParams;
     this.particles = this.service.getParticle();
   }
 

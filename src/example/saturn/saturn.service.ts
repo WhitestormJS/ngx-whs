@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import * as WHS from 'whs/build/whs';
 
 
-import { Vector3, Vector2, MeshPhongMaterial, PCFSoftShadowMap, FlatShading, MeshStandardMaterial } from 'three';
+import { Vector3, Vector2, MeshPhongMaterial, PCFSoftShadowMap, FlatShading, MeshStandardMaterial, MeshBasicMaterial } from 'three';
 
 const radiusMax = 220; // Max radius of the asteroid belt.
 const particleCount = 400; // Ammount of asteroids.
@@ -161,6 +161,22 @@ export class SaturnService {
         z: 300,
         y: 100
       }
+    };
+  }
+
+  get textParams() {
+    return {
+      text: 'hello ngx-whs',
+      font: WHS.Text.load('./assets/gentilis_bold.typeface.json'),
+      geometry: {
+        size: 20,
+        height: 5,
+        curveSegments: 6
+      },
+      material: new MeshBasicMaterial({
+        color: 0xCACACA
+      }),
+      position: [-100, 100, 0]
     };
   }
 
