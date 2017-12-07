@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HelloWorldComponent } from './helloword';
 import { MouseComponent } from './mouse';
 import { TextComponent } from './text';
+import { TerrainComponent } from './terrain';
 
 export interface Menu {
   content: string;
@@ -38,6 +39,15 @@ export const children: Routes = [
     data: {
       content: 'text',
       link: 'text',
+      icon: 'anticon anticon-dot-chart'
+    }
+  },
+  {
+    path: 'terrain',
+    component: TerrainComponent,
+    data: {
+      content: 'terrain',
+      link: 'terrain',
       icon: 'anticon anticon-dot-chart'
     }
   }

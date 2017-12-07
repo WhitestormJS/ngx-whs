@@ -90,14 +90,6 @@ export const $colors = {
   softbody: 0x434B7F
 };
 
-export function addAmbient(app, intensity) {
-  new WHS.AmbientLight({
-    intensity
-  }).addTo(app);
-}
-
-
-
 export function getBasicLights(intensity = 0.5, position = [0, 10, 10], distance = 100, shadowmap = {}) {
   return {
     pointLight: {

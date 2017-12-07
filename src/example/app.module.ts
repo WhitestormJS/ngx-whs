@@ -14,14 +14,15 @@ import { CustomPointLightComponent, MenuComponent } from './components';
 import { HelloWorldComponent } from './helloword';
 import { MouseComponent } from './mouse';
 import { TextComponent } from './text';
+import { TerrainComponent } from './terrain';
 
 const COMPONENTS = [
   MenuComponent,
   CustomPointLightComponent,
-
   HelloWorldComponent,
   MouseComponent,
   TextComponent,
+  TerrainComponent
 ];
 
 

@@ -19,6 +19,8 @@ export class ParametricComponent extends MeshComponent implements OnInit {
   }
 
   ngOnInit() {
+    // tslint:disable-next-line:no-debugger
+    // debugger;
     this._instance = new Parametric(this.params);
   }
 
