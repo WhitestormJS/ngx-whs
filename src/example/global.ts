@@ -73,7 +73,6 @@ export const appModules = ( // appModules(camera, rendering);
   useControls = true
 ) => (
     [
-      new WHS.ElementModule(),
       new WHS.SceneModule(),
       new WHS.DefineModule('camera', new WHS.PerspectiveCamera(Object.assign(camera, { fov: 75 }))),
       new WHS.RenderingModule(rendering, { shadow: true }),
@@ -90,14 +89,6 @@ export const $colors = {
   mesh: 0xF2F2F2,
   softbody: 0x434B7F
 };
-
-export function addAmbient(app, intensity) {
-  new WHS.AmbientLight({
-    intensity
-  }).addTo(app);
-}
-
-
 
 export function getBasicLights(intensity = 0.5, position = [0, 10, 10], distance = 100, shadowmap = {}) {
   return {

@@ -3,6 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HelloWorldComponent } from './helloword';
 import { MouseComponent } from './mouse';
+import { TextComponent } from './text';
+import { TerrainComponent } from './terrain';
+import { SaturnComponent } from './saturn';
+
 
 export interface Menu {
   content: string;
@@ -30,6 +34,33 @@ export const children: Routes = [
       link: 'mouse',
       icon: 'anticon anticon-dot-chart'
     }
+  },
+  {
+    path: 'text',
+    component: TextComponent,
+    data: {
+      content: 'text',
+      link: 'text',
+      icon: 'anticon anticon-dot-chart'
+    }
+  },
+  {
+    path: 'saturn',
+    component: SaturnComponent,
+    data: {
+      content: 'saturn',
+      link: 'saturn',
+      icon: 'anticon anticon-dot-chart'
+    }
+  },
+  {
+    path: 'terrain',
+    component: TerrainComponent,
+    data: {
+      content: 'terrain',
+      link: 'terrain',
+      icon: 'anticon anticon-dot-chart'
+    }
   }
 ];
 
@@ -40,10 +71,16 @@ export const routes: Routes = [
     redirectTo: 'helloworld',
   },
   ...children,
+  {
+    path: '**',
+    redirectTo: 'helloworld'
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    useHash: true
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

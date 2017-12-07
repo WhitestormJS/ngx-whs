@@ -2,6 +2,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.3.
 
+- [example](http://blog.ctyloading.cn/ngx-whs) / [example source code](https://github.com/WhitestormJS/ngx-whs/tree/master/src/example)
+
 ## Attendtion
 
 require whs@2.1.9 

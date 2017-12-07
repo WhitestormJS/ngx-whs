@@ -22,9 +22,8 @@ import { WorldModule, SphereModule, BoxModule, PlaneModule } from 'physics-modul
 
 
 @Component({
-  selector: 'whs-helloworld',
+  selector: 'app-helloworld',
   templateUrl: './helloworld.component.html',
-  styleUrls: ['./helloworld.component.scss'],
 })
 export class HelloWorldComponent {
 

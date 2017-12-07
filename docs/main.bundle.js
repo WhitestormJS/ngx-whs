@@ -999,7 +999,7 @@ __decorate([
 ], DodecahedronComponent.prototype, "params", void 0);
 DodecahedronComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-        selector: 'whs-odecahedron',
+        selector: 'whs-dodecahedron',
         template: '<ng-content></ng-content>',
     }),
     __metadata("design:paramtypes", [])
@@ -1625,6 +1625,8 @@ var ParametricComponent = (function (_super) {
         return _this;
     }
     ParametricComponent.prototype.ngOnInit = function () {
+        // tslint:disable-next-line:no-debugger
+        // debugger;
         this._instance = new __WEBPACK_IMPORTED_MODULE_1_whs__["Parametric"](this.params);
     };
     ParametricComponent.prototype.buildGeometry = function () {
@@ -2801,6 +2803,9 @@ var SenceComponent = (function () {
     };
     SenceComponent.prototype.ngAfterViewInit = function () {
     };
+    SenceComponent.prototype.ngOnDestroy = function () {
+        this.instance.nativeElement.remove();
+    };
     SenceComponent.prototype.attach = function () {
         var _this = this;
         this.components.forEach(function (component) {
@@ -3068,12 +3073,9 @@ var TYPE_ADDTO = Symbol('addTo');
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StateService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__ = __webpack_require__("../../../../rxjs/Subject.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_filter__ = __webpack_require__("../../../../rxjs/add/operator/filter.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_filter___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_filter__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__ = __webpack_require__("../../../../rxjs/_esm5/Subject.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_filter__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/filter.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/map.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3089,7 +3091,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var StateService = (function () {
     function StateService() {
-        this.event$ = new __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__["Subject"]();
+        this.event$ = new __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__["a" /* Subject */]();
         this.data = [];
     }
     StateService.prototype.on = function (name, fn) {
@@ -3146,12 +3148,18 @@ var environment = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__helloword__ = __webpack_require__("../../../../../src/example/helloword/index.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mouse__ = __webpack_require__("../../../../../src/example/mouse/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__text__ = __webpack_require__("../../../../../src/example/text/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__terrain__ = __webpack_require__("../../../../../src/example/terrain/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__saturn__ = __webpack_require__("../../../../../src/example/saturn/index.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
 
 
 
@@ -3174,6 +3182,33 @@ var children = [
             link: 'mouse',
             icon: 'anticon anticon-dot-chart'
         }
+    },
+    {
+        path: 'text',
+        component: __WEBPACK_IMPORTED_MODULE_4__text__["a" /* TextComponent */],
+        data: {
+            content: 'text',
+            link: 'text',
+            icon: 'anticon anticon-dot-chart'
+        }
+    },
+    {
+        path: 'saturn',
+        component: __WEBPACK_IMPORTED_MODULE_6__saturn__["a" /* SaturnComponent */],
+        data: {
+            content: 'saturn',
+            link: 'saturn',
+            icon: 'anticon anticon-dot-chart'
+        }
+    },
+    {
+        path: 'terrain',
+        component: __WEBPACK_IMPORTED_MODULE_5__terrain__["a" /* TerrainComponent */],
+        data: {
+            content: 'terrain',
+            link: 'terrain',
+            icon: 'anticon anticon-dot-chart'
+        }
     }
 ];
 var routes = [
@@ -3182,7 +3217,12 @@ var routes = [
         pathMatch: 'full',
         redirectTo: 'helloworld',
     }
-].concat(children);
+].concat(children, [
+    {
+        path: '**',
+        redirectTo: 'helloworld'
+    },
+]);
 var AppRoutingModule = (function () {
     function AppRoutingModule() {
     }
@@ -3190,7 +3230,9 @@ var AppRoutingModule = (function () {
 }());
 AppRoutingModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */])({
-        imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forRoot(routes)],
+        imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forRoot(routes, {
+                useHash: true
+            })],
         exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
     })
 ], AppRoutingModule);
@@ -3278,6 +3320,9 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components__ = __webpack_require__("../../../../../src/example/components/index.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__helloword__ = __webpack_require__("../../../../../src/example/helloword/index.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__mouse__ = __webpack_require__("../../../../../src/example/mouse/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__text__ = __webpack_require__("../../../../../src/example/text/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__terrain__ = __webpack_require__("../../../../../src/example/terrain/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__saturn__ = __webpack_require__("../../../../../src/example/saturn/index.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3295,11 +3340,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
+
 var COMPONENTS = [
     __WEBPACK_IMPORTED_MODULE_8__components__["b" /* MenuComponent */],
     __WEBPACK_IMPORTED_MODULE_8__components__["a" /* CustomPointLightComponent */],
     __WEBPACK_IMPORTED_MODULE_9__helloword__["a" /* HelloWorldComponent */],
     __WEBPACK_IMPORTED_MODULE_10__mouse__["a" /* MouseComponent */],
+    __WEBPACK_IMPORTED_MODULE_11__text__["a" /* TextComponent */],
+    __WEBPACK_IMPORTED_MODULE_12__terrain__["a" /* TerrainComponent */],
+    __WEBPACK_IMPORTED_MODULE_13__saturn__["a" /* SaturnComponent */],
 ];
 var AppModule = (function () {
     function AppModule() {
@@ -3366,7 +3417,7 @@ var CustomPointLightComponent = (function (_super) {
             camera: {
                 fov: 90
             },
-            position: new __WEBPACK_IMPORTED_MODULE_2_three__["g" /* Vector3 */](0, 25, 30)
+            position: new __WEBPACK_IMPORTED_MODULE_2_three__["l" /* Vector3 */](0, 25, 30)
         };
         return _this;
     }
@@ -3498,12 +3549,11 @@ MenuComponent = __decorate([
 "use strict";
 /* unused harmony export $world */
 /* unused harmony export appDefaults */
-/* unused harmony export appModules */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return appModules; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return $colors; });
-/* unused harmony export addAmbient */
-/* harmony export (immutable) */ __webpack_exports__["b"] = getBasicLights;
+/* harmony export (immutable) */ __webpack_exports__["c"] = getBasicLights;
 /* unused harmony export getPlane */
-/* harmony export (immutable) */ __webpack_exports__["c"] = getBoxPlane;
+/* harmony export (immutable) */ __webpack_exports__["d"] = getBoxPlane;
 /* unused harmony export Label */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_three__ = __webpack_require__("../../../../three/build/three.module.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_whs__ = __webpack_require__("../../../../whs/build/whs.module.js");
@@ -3551,12 +3601,12 @@ var $world = {
         }
     },
     shadowmap: {
-        type: isMobile ? __WEBPACK_IMPORTED_MODULE_0_three__["a" /* BasicShadowMap */] : __WEBPACK_IMPORTED_MODULE_0_three__["c" /* PCFSoftShadowMap */]
+        type: isMobile ? __WEBPACK_IMPORTED_MODULE_0_three__["a" /* BasicShadowMap */] : __WEBPACK_IMPORTED_MODULE_0_three__["g" /* PCFSoftShadowMap */]
     }
 };
 var appDefaults = {
     camera: {
-        position: new __WEBPACK_IMPORTED_MODULE_0_three__["g" /* Vector3 */](0, 10, 50),
+        position: new __WEBPACK_IMPORTED_MODULE_0_three__["l" /* Vector3 */](0, 10, 50),
         far: isMobile ? 200 : 1000
     },
     rendering: {
@@ -3565,7 +3615,7 @@ var appDefaults = {
         renderer: {
             antialias: !isMobile,
             shadowMap: {
-                type: isMobile ? __WEBPACK_IMPORTED_MODULE_0_three__["a" /* BasicShadowMap */] : __WEBPACK_IMPORTED_MODULE_0_three__["c" /* PCFSoftShadowMap */]
+                type: isMobile ? __WEBPACK_IMPORTED_MODULE_0_three__["a" /* BasicShadowMap */] : __WEBPACK_IMPORTED_MODULE_0_three__["g" /* PCFSoftShadowMap */]
             }
         }
     },
@@ -3580,7 +3630,6 @@ var appModules = function (// appModules(camera, rendering);
     if (physics === void 0) { physics = appDefaults.physics; }
     if (useControls === void 0) { useControls = true; }
     return ([
-        new __WEBPACK_IMPORTED_MODULE_2_whs_build_whs__["ElementModule"](),
         new __WEBPACK_IMPORTED_MODULE_2_whs_build_whs__["SceneModule"](),
         new __WEBPACK_IMPORTED_MODULE_2_whs_build_whs__["DefineModule"]('camera', new __WEBPACK_IMPORTED_MODULE_2_whs_build_whs__["PerspectiveCamera"](Object.assign(camera, { fov: 75 }))),
         new __WEBPACK_IMPORTED_MODULE_2_whs_build_whs__["RenderingModule"](rendering, { shadow: true }),
@@ -3596,11 +3645,6 @@ var $colors = {
     mesh: 0xF2F2F2,
     softbody: 0x434B7F
 };
-function addAmbient(app, intensity) {
-    new __WEBPACK_IMPORTED_MODULE_2_whs_build_whs__["AmbientLight"]({
-        intensity: intensity
-    }).addTo(app);
-}
 function getBasicLights(intensity, position, distance, shadowmap) {
     if (intensity === void 0) { intensity = 0.5; }
     if (position === void 0) { position = [0, 10, 10]; }
@@ -3632,7 +3676,7 @@ function getPlane(size) {
                 mass: 0
             })
         ],
-        material: new __WEBPACK_IMPORTED_MODULE_0_three__["b" /* MeshPhongMaterial */]({ color: 0x447F8B }),
+        material: new __WEBPACK_IMPORTED_MODULE_0_three__["e" /* MeshPhongMaterial */]({ color: 0x447F8B }),
         rotation: {
             x: -Math.PI / 2
         }
@@ -3652,7 +3696,7 @@ function getBoxPlane(size, color) {
                 mass: 0
             })
         ],
-        material: new __WEBPACK_IMPORTED_MODULE_0_three__["b" /* MeshPhongMaterial */]({ color: color })
+        material: new __WEBPACK_IMPORTED_MODULE_0_three__["e" /* MeshPhongMaterial */]({ color: color })
     };
 }
 function hexToRgb(hex) {
@@ -3688,9 +3732,9 @@ var Label = (function (_super) {
         ctx.fillText(text, 150, 75);
         // ctx.fillStyle = 'green';
         // ctx.fillRect(10, 10, 100, 100);
-        var texture = new __WEBPACK_IMPORTED_MODULE_0_three__["f" /* Texture */](this.canvas);
+        var texture = new __WEBPACK_IMPORTED_MODULE_0_three__["j" /* Texture */](this.canvas);
         texture.needsUpdate = true;
-        var sprite = new __WEBPACK_IMPORTED_MODULE_0_three__["d" /* Sprite */](new __WEBPACK_IMPORTED_MODULE_0_three__["e" /* SpriteMaterial */]({ map: texture }));
+        var sprite = new __WEBPACK_IMPORTED_MODULE_0_three__["h" /* Sprite */](new __WEBPACK_IMPORTED_MODULE_0_three__["i" /* SpriteMaterial */]({ map: texture }));
         return sprite;
     };
     return Label;
@@ -3703,25 +3747,7 @@ var Label = (function (_super) {
 /***/ "../../../../../src/example/helloword/helloworld.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<whs-sence [id]=\"'c1'\" [modules]=\"containerModules\">\n  <whs-sphere #component [params]=\"sphereParams\"></whs-sphere>\n\n  <whs-box #component [params]=\"planeParams\"></whs-box>\n\n  <whs-ambient-light #component [params]=\"ambientLightParams\"></whs-ambient-light>\n\n  <whs-point-light #component [params]=\"pointLightParams\"></whs-point-light>\n</whs-sence>\n"
-
-/***/ }),
-
-/***/ "../../../../../src/example/helloword/helloworld.component.scss":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, ":host .row {\n  width: 100%;\n  height: 100%; }\n  :host .row .col {\n    width: 100%;\n    height: 100%;\n    float: left;\n    border: 1px solid #c28a8a; }\n", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
+module.exports = "<whs-sence [modules]=\"containerModules\">\n  <whs-sphere #component [params]=\"sphereParams\"></whs-sphere>\n\n  <whs-box #component [params]=\"planeParams\"></whs-box>\n\n  <whs-ambient-light #component [params]=\"ambientLightParams\"></whs-ambient-light>\n\n  <whs-point-light #component [params]=\"pointLightParams\"></whs-point-light>\n</whs-sence>\n"
 
 /***/ }),
 
@@ -3763,7 +3789,7 @@ var HelloWorldComponent = (function () {
         this.containerModules = [
             new __WEBPACK_IMPORTED_MODULE_2_whs__["SceneModule"](),
             new __WEBPACK_IMPORTED_MODULE_3_whs_build_whs__["DefineModule"]('camera', new __WEBPACK_IMPORTED_MODULE_2_whs__["PerspectiveCamera"]({
-                position: new __WEBPACK_IMPORTED_MODULE_4_three__["g" /* Vector3 */](0, 10, 50),
+                position: new __WEBPACK_IMPORTED_MODULE_4_three__["l" /* Vector3 */](0, 10, 50),
                 far: 1000,
             })),
             new __WEBPACK_IMPORTED_MODULE_2_whs__["RenderingModule"]({
@@ -3771,7 +3797,7 @@ var HelloWorldComponent = (function () {
                 renderer: {
                     antialias: true,
                     shadowmap: {
-                        type: __WEBPACK_IMPORTED_MODULE_4_three__["c" /* PCFSoftShadowMap */],
+                        type: __WEBPACK_IMPORTED_MODULE_4_three__["g" /* PCFSoftShadowMap */],
                     },
                 }
             }, { shadow: true }),
@@ -3792,22 +3818,21 @@ var HelloWorldComponent = (function () {
                     mass: 10
                 })
             ],
-            material: new __WEBPACK_IMPORTED_MODULE_4_three__["b" /* MeshPhongMaterial */]({
+            material: new __WEBPACK_IMPORTED_MODULE_4_three__["e" /* MeshPhongMaterial */]({
                 color: __WEBPACK_IMPORTED_MODULE_1__global__["a" /* $colors */].mesh
             }),
             position: [0, 100, 0]
         };
-        this.planeParams = Object(__WEBPACK_IMPORTED_MODULE_1__global__["c" /* getBoxPlane */])();
-        this.pointLightParams = Object(__WEBPACK_IMPORTED_MODULE_1__global__["b" /* getBasicLights */])().pointLight;
-        this.ambientLightParams = Object(__WEBPACK_IMPORTED_MODULE_1__global__["b" /* getBasicLights */])().ambientLight;
+        this.planeParams = Object(__WEBPACK_IMPORTED_MODULE_1__global__["d" /* getBoxPlane */])();
+        this.pointLightParams = Object(__WEBPACK_IMPORTED_MODULE_1__global__["c" /* getBasicLights */])().pointLight;
+        this.ambientLightParams = Object(__WEBPACK_IMPORTED_MODULE_1__global__["c" /* getBasicLights */])().ambientLight;
     }
     return HelloWorldComponent;
 }());
 HelloWorldComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-        selector: 'whs-helloworld',
+        selector: 'app-helloworld',
         template: __webpack_require__("../../../../../src/example/helloword/helloworld.component.html"),
-        styles: [__webpack_require__("../../../../../src/example/helloword/helloworld.component.scss")],
     }),
     __metadata("design:paramtypes", [])
 ], HelloWorldComponent);
@@ -3878,7 +3903,7 @@ var MouseComponent = (function () {
         this.containerModules = [
             new __WEBPACK_IMPORTED_MODULE_1_whs__["SceneModule"](),
             new __WEBPACK_IMPORTED_MODULE_2_whs_build_whs__["DefineModule"]('camera', new __WEBPACK_IMPORTED_MODULE_1_whs__["PerspectiveCamera"]({
-                position: new __WEBPACK_IMPORTED_MODULE_3_three__["g" /* Vector3 */](0, 10, 50),
+                position: new __WEBPACK_IMPORTED_MODULE_3_three__["l" /* Vector3 */](0, 10, 50),
                 far: 1000,
             })),
             new __WEBPACK_IMPORTED_MODULE_1_whs__["RenderingModule"]({
@@ -3886,7 +3911,7 @@ var MouseComponent = (function () {
                 renderer: {
                     antialias: true,
                     shadowmap: {
-                        type: __WEBPACK_IMPORTED_MODULE_3_three__["c" /* PCFSoftShadowMap */],
+                        type: __WEBPACK_IMPORTED_MODULE_3_three__["g" /* PCFSoftShadowMap */],
                     },
                 }
             }, { shadow: true }),
@@ -3907,14 +3932,14 @@ var MouseComponent = (function () {
                     mass: 10
                 })
             ],
-            material: new __WEBPACK_IMPORTED_MODULE_3_three__["b" /* MeshPhongMaterial */]({
+            material: new __WEBPACK_IMPORTED_MODULE_3_three__["e" /* MeshPhongMaterial */]({
                 color: __WEBPACK_IMPORTED_MODULE_5__global__["a" /* $colors */].mesh
             }),
             position: [0, 100, 0]
         };
-        this.planeParams = Object(__WEBPACK_IMPORTED_MODULE_5__global__["c" /* getBoxPlane */])();
-        this.pointLightParams = Object(__WEBPACK_IMPORTED_MODULE_5__global__["b" /* getBasicLights */])().pointLight;
-        this.ambientLightParams = Object(__WEBPACK_IMPORTED_MODULE_5__global__["b" /* getBasicLights */])().ambientLight;
+        this.planeParams = Object(__WEBPACK_IMPORTED_MODULE_5__global__["d" /* getBoxPlane */])();
+        this.pointLightParams = Object(__WEBPACK_IMPORTED_MODULE_5__global__["c" /* getBasicLights */])().pointLight;
+        this.ambientLightParams = Object(__WEBPACK_IMPORTED_MODULE_5__global__["c" /* getBasicLights */])().ambientLight;
         this.mouse = new __WEBPACK_IMPORTED_MODULE_1_whs__["VirtualMouseModule"]();
         this.containerModules.push(this.mouse);
     }
@@ -3946,6 +3971,519 @@ MouseComponent = __decorate([
 ], MouseComponent);
 
 //# sourceMappingURL=mouse.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/example/saturn/index.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__saturn_component__ = __webpack_require__("../../../../../src/example/saturn/saturn.component.ts");
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__saturn_component__["a"]; });
+
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/example/saturn/saturn.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<whs-sence [modules]=\"containerModules\">\n  <whs-ambient-light #component [params]=\"ambientLightParams\"></whs-ambient-light>\n  <whs-directional-light #component [params]=\"directionalLightParams\"></whs-directional-light>\n  <whs-group\n    #component\n    [params]=\"spaceParams\">\n\n    <whs-tetrahedron\n      #component\n      [whsLoop]=\"service.planetLoop()\"\n      [params]=\"planetParams\"></whs-tetrahedron>\n\n    <whs-group #component>\n      <ng-container *ngFor=\"let particle of particles\">\n        <whs-box #component *ngIf=\"particle.type === 'Box'\" [params]=\"particle.params\" [whsLoop]=\"service.particleLoop()\" (ready)=\"service.particleReady($event)\"></whs-box>\n        <whs-cylinder #component *ngIf=\"particle.type === 'Cylinder'\" [params]=\"particle.params\" [whsLoop]=\"service.particleLoop()\" (ready)=\"service.particleReady($event)\"></whs-cylinder>\n        <whs-dodecahedron #component *ngIf=\"particle.type === 'Dodecahedron'\" [params]=\"particle.params\" [whsLoop]=\"service.particleLoop()\" (ready)=\"service.particleReady($event)\"></whs-dodecahedron>\n        <whs-sphere #component *ngIf=\"particle.type === 'Sphere'\" [params]=\"particle.params\" [whsLoop]=\"service.particleLoop()\" (ready)=\"service.particleReady($event)\"></whs-sphere>\n      </ng-container>\n    </whs-group>\n\n  </whs-group>\n\n</whs-sence>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/example/saturn/saturn.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SaturnComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__saturn_service__ = __webpack_require__("../../../../../src/example/saturn/saturn.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var SaturnComponent = (function () {
+    function SaturnComponent(service) {
+        this.service = service;
+        this.spaceParams = {
+            rotation: {
+                z: Math.PI / 12,
+            },
+        };
+        this.ambientLightParams = {
+            color: 0x663344,
+            intensity: 2
+        };
+        this.containerModules = this.service.containerModules;
+        this.planetParams = this.service.planetParams;
+        this.directionalLightParams = this.service.directionalLight;
+        this.particles = this.service.getParticle();
+    }
+    SaturnComponent.prototype.ready = function (instance) {
+        instance.defer(function () {
+            instance.applyModule();
+        });
+    };
+    return SaturnComponent;
+}());
+SaturnComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-saturn',
+        template: __webpack_require__("../../../../../src/example/saturn/saturn.component.html"),
+        providers: [
+            __WEBPACK_IMPORTED_MODULE_1__saturn_service__["a" /* SaturnService */],
+        ],
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__saturn_service__["a" /* SaturnService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__saturn_service__["a" /* SaturnService */]) === "function" && _a || Object])
+], SaturnComponent);
+
+var _a;
+//# sourceMappingURL=saturn.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/example/saturn/saturn.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SaturnService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_whs_build_whs__ = __webpack_require__("../../../../whs/build/whs.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_whs_build_whs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_whs_build_whs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_three__ = __webpack_require__("../../../../three/build/three.module.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var radiusMax = 220; // Max radius of the asteroid belt.
+var particleCount = 400; // Ammount of asteroids.
+var particleMinRadius = 0.1; // Min of asteroid radius.
+var particleMaxRadius = 4; // Max of asteroid radius.
+var planetSize = 50; // Radius of planet.
+var radiusMin = 110; // Min radius of the asteroid belt.
+var colors = {
+    green: 0x8fc999,
+    blue: 0x5fc4d0,
+    orange: 0xee5624,
+    yellow: 0xfaff70
+};
+var mat = [
+    new __WEBPACK_IMPORTED_MODULE_2_three__["e" /* MeshPhongMaterial */]({ color: colors.green, shading: __WEBPACK_IMPORTED_MODULE_2_three__["c" /* FlatShading */] }),
+    new __WEBPACK_IMPORTED_MODULE_2_three__["e" /* MeshPhongMaterial */]({ color: colors.blue, shading: __WEBPACK_IMPORTED_MODULE_2_three__["c" /* FlatShading */] }),
+    new __WEBPACK_IMPORTED_MODULE_2_three__["e" /* MeshPhongMaterial */]({ color: colors.orange, shading: __WEBPACK_IMPORTED_MODULE_2_three__["c" /* FlatShading */] }),
+    new __WEBPACK_IMPORTED_MODULE_2_three__["e" /* MeshPhongMaterial */]({ color: colors.yellow, shading: __WEBPACK_IMPORTED_MODULE_2_three__["c" /* FlatShading */] })
+];
+var dynamicGeometry = new __WEBPACK_IMPORTED_MODULE_1_whs_build_whs__["DynamicGeometryModule"]();
+var material = new __WEBPACK_IMPORTED_MODULE_2_three__["f" /* MeshStandardMaterial */]({
+    shading: __WEBPACK_IMPORTED_MODULE_2_three__["c" /* FlatShading */],
+    emissive: 0x270000,
+    roughness: 0.9,
+});
+var particleType = [
+    {
+        type: 'Dodecahedron',
+        params: {
+            geometry: {
+                buffer: true,
+                radius: 10
+            },
+            modules: [
+                dynamicGeometry
+            ],
+            material: material
+        }
+    },
+    {
+        type: 'Box',
+        params: {
+            geometry: {
+                buffer: true,
+                width: 10,
+                height: 10,
+                depth: 10
+            },
+            modules: [
+                dynamicGeometry
+            ],
+            material: material
+        }
+    },
+    {
+        type: 'Cylinder',
+        params: {
+            geometry: {
+                buffer: true,
+                radiusTop: 0,
+                radiusBottom: 10,
+                height: 10
+            },
+            modules: [
+                dynamicGeometry
+            ],
+            material: material
+        }
+    },
+    {
+        type: 'Sphere',
+        params: {
+            geometry: {
+                buffer: true,
+                radius: 10
+            },
+            modules: [
+                dynamicGeometry
+            ],
+            material: material
+        }
+    }
+];
+var SaturnService = (function () {
+    function SaturnService() {
+    }
+    Object.defineProperty(SaturnService.prototype, "containerModules", {
+        get: function () {
+            return [
+                new __WEBPACK_IMPORTED_MODULE_1_whs_build_whs__["SceneModule"](),
+                new __WEBPACK_IMPORTED_MODULE_1_whs_build_whs__["DefineModule"]('camera', new __WEBPACK_IMPORTED_MODULE_1_whs_build_whs__["PerspectiveCamera"]({
+                    position: new __WEBPACK_IMPORTED_MODULE_2_three__["l" /* Vector3 */](0, 100, 400),
+                    far: 2000,
+                    fov: 75,
+                    near: 1
+                })),
+                new __WEBPACK_IMPORTED_MODULE_1_whs_build_whs__["RenderingModule"]({
+                    bgColor: 0x2a3340,
+                    renderer: {
+                        antialias: true,
+                        shadowmap: {
+                            type: __WEBPACK_IMPORTED_MODULE_2_three__["g" /* PCFSoftShadowMap */]
+                        }
+                    }
+                }, { shadow: true }),
+                new __WEBPACK_IMPORTED_MODULE_1_whs_build_whs__["OrbitControlsModule"](),
+                new __WEBPACK_IMPORTED_MODULE_1_whs_build_whs__["ResizeModule"]()
+            ];
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(SaturnService.prototype, "planetParams", {
+        get: function () {
+            return {
+                geometry: {
+                    radius: planetSize,
+                    detail: 2
+                },
+                material: new __WEBPACK_IMPORTED_MODULE_2_three__["f" /* MeshStandardMaterial */]({
+                    color: 0xee5624,
+                    shading: __WEBPACK_IMPORTED_MODULE_2_three__["c" /* FlatShading */],
+                    roughness: 0.9,
+                    emissive: 0x270000
+                })
+            };
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(SaturnService.prototype, "directionalLight", {
+        get: function () {
+            return {
+                color: 0xffffff,
+                intensity: 1.5,
+                distance: 800,
+                shadow: {
+                    mapSize: {
+                        width: 2048,
+                        height: 2048
+                    },
+                    camera: {
+                        left: -800,
+                        right: 800,
+                        top: 800,
+                        bottom: -800,
+                        far: 800
+                    }
+                },
+                position: {
+                    x: 300,
+                    z: 300,
+                    y: 100
+                }
+            };
+        },
+        enumerable: true,
+        configurable: true
+    });
+    SaturnService.prototype.getParticle = function () {
+        var particles = [];
+        for (var i = 0; i < particleCount; i++) {
+            particles.push(particleType[Math.ceil(Math.random() * 3)]);
+        }
+        return particles;
+    };
+    SaturnService.prototype.particleReady = function (particle) {
+        console.log('12312-1312', particle);
+        var radius = particleMinRadius + Math.random() * (particleMaxRadius - particleMinRadius);
+        particle.g_({
+            radiusBottom: radius,
+            radiusTop: 0,
+            height: particle instanceof __WEBPACK_IMPORTED_MODULE_1_whs_build_whs__["Cylinder"] ? radius * 2 : radius,
+            width: radius,
+            depth: radius,
+            radius: radius
+        });
+        particle.material = mat[Math.floor(4 * Math.random())]; // Set custom THREE.Material to mesh.
+        // Particle data.
+        particle.data = {
+            distance: radiusMin + Math.random() * (radiusMax - radiusMin),
+            angle: Math.random() * Math.PI * 2
+        };
+        // Set position & rotation.
+        particle.position.x = Math.cos(particle.data.angle) * particle.data.distance;
+        particle.position.z = Math.sin(particle.data.angle) * particle.data.distance;
+        particle.position.y = -10 * Math.random() + 4;
+        particle.rotation.set(Math.PI * 2 * Math.random(), Math.PI * 2 * Math.random(), Math.PI * 2 * Math.random());
+    };
+    SaturnService.prototype.particleLoop = function () {
+        return function (host) {
+            var particle = host._instance;
+            particle.data.angle += 0.02 * particle.data.distance / radiusMax;
+            particle.position.x = Math.cos(particle.data.angle) * particle.data.distance;
+            particle.position.z = Math.sin(particle.data.angle) * particle.data.distance;
+            particle.rotation.x += Math.PI / 60;
+            particle.rotation.y += Math.PI / 60;
+        };
+    };
+    SaturnService.prototype.planetLoop = function () {
+        return function (host) {
+            var planet = host._instance;
+            planet.rotation.y += 0.005;
+        };
+    };
+    return SaturnService;
+}());
+SaturnService = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])()
+], SaturnService);
+
+//# sourceMappingURL=saturn.service.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/example/terrain/index.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__terrain_component__ = __webpack_require__("../../../../../src/example/terrain/terrain.component.ts");
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__terrain_component__["a"]; });
+
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/example/terrain/terrain.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<whs-sence [modules]=\"containerModules\">\n  <whs-ambient-light #component [params]=\"ambientLightParams\"></whs-ambient-light>\n  <whs-point-light #component [params]=\"pointLightParams\"></whs-point-light>\n  <whs-parametric #component [params]=\"terrainParams\" (ready)=\"ready($event)\"></whs-parametric>\n  <whs-sphere #component [params]=\"sphereParams\"></whs-sphere>\n</whs-sence>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/example/terrain/terrain.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TerrainComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__global__ = __webpack_require__("../../../../../src/example/global.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_three__ = __webpack_require__("../../../../three/build/three.module.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_physics_module_ammonext__ = __webpack_require__("../../../../physics-module-ammonext/build/physics-module.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_physics_module_ammonext___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_physics_module_ammonext__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var func = function (u, v) {
+    return new __WEBPACK_IMPORTED_MODULE_2_three__["l" /* Vector3 */](u * 100, Math.sin(u * 10) * 4, v * 100);
+};
+var TerrainComponent = (function () {
+    function TerrainComponent() {
+        this.containerModules = Object(__WEBPACK_IMPORTED_MODULE_1__global__["b" /* appModules */])({
+            position: new __WEBPACK_IMPORTED_MODULE_2_three__["l" /* Vector3 */](0, 10, 100),
+            far: 200,
+        }).slice();
+        this.terrainParams = {
+            geometry: {
+                func: func,
+                slices: 40,
+                stacks: 40
+            },
+            shadow: {
+                cast: false
+            },
+            material: new __WEBPACK_IMPORTED_MODULE_2_three__["e" /* MeshPhongMaterial */]({
+                color: __WEBPACK_IMPORTED_MODULE_1__global__["a" /* $colors */].mesh,
+                side: __WEBPACK_IMPORTED_MODULE_2_three__["b" /* DoubleSide */]
+            }),
+            modules: [
+                new __WEBPACK_IMPORTED_MODULE_3_physics_module_ammonext__["HeightfieldModule"]({
+                    mass: 0,
+                    size: new __WEBPACK_IMPORTED_MODULE_2_three__["k" /* Vector2 */](40, 40),
+                    autoAlign: true
+                })
+            ]
+        };
+        this.sphereParams = {
+            geometry: {
+                radius: 1,
+                widthSegments: 32,
+                heightSegments: 32
+            },
+            modules: [
+                new __WEBPACK_IMPORTED_MODULE_3_physics_module_ammonext__["SphereModule"]({
+                    mass: 2,
+                    restitution: 1
+                })
+            ],
+            material: new __WEBPACK_IMPORTED_MODULE_2_three__["e" /* MeshPhongMaterial */]({
+                color: __WEBPACK_IMPORTED_MODULE_1__global__["a" /* $colors */].mesh
+            }),
+            position: new __WEBPACK_IMPORTED_MODULE_2_three__["l" /* Vector3 */](-31, 20, 0) // -30, 120, -40
+        };
+        this.pointLightParams = Object(__WEBPACK_IMPORTED_MODULE_1__global__["c" /* getBasicLights */])(0.5, [0, 10, 10], 100, {
+            bias: 0.0001,
+            radius: 2,
+            camera: {
+                fov: 90
+            }
+        }).pointLight;
+        this.ambientLightParams = Object(__WEBPACK_IMPORTED_MODULE_1__global__["c" /* getBasicLights */])(0.5, [0, 10, 10], 100, {
+            bias: 0.0001,
+            radius: 2,
+            camera: {
+                fov: 90
+            }
+        }).ambientLight;
+    }
+    TerrainComponent.prototype.ready = function (instance) {
+        instance.defer(function () {
+            instance.applyModule();
+            console.log(instance);
+        });
+    };
+    return TerrainComponent;
+}());
+TerrainComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-terrain',
+        template: __webpack_require__("../../../../../src/example/terrain/terrain.component.html"),
+    }),
+    __metadata("design:paramtypes", [])
+], TerrainComponent);
+
+//# sourceMappingURL=terrain.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/example/text/index.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__text_component__ = __webpack_require__("../../../../../src/example/text/text.component.ts");
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__text_component__["a"]; });
+
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/example/text/text.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<whs-sence [modules]=\"containerModules\">\n  <whs-text\n    #component\n    [params]=\"textParams\"></whs-text>\n</whs-sence>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/example/text/text.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TextComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__global__ = __webpack_require__("../../../../../src/example/global.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_whs_build_whs__ = __webpack_require__("../../../../whs/build/whs.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_whs_build_whs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_whs_build_whs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_three__ = __webpack_require__("../../../../three/build/three.module.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+// function resolveFront(path): Promise<Font> {
+//   return new Promise(resolve => {
+//     (new THREE.FontLoader()).load(path, resolve);
+//   });
+// }
+var TextComponent = (function () {
+    function TextComponent() {
+        this.containerModules = Object(__WEBPACK_IMPORTED_MODULE_1__global__["b" /* appModules */])({
+            position: new __WEBPACK_IMPORTED_MODULE_3_three__["l" /* Vector3 */](0, 10, 200),
+            far: 1000,
+        }).slice();
+        this.textParams = {
+            text: 'hello ngx-whs',
+            font: __WEBPACK_IMPORTED_MODULE_2_whs_build_whs__["Text"].load('./assets/gentilis_bold.typeface.json'),
+            geometry: {
+                size: 20,
+                height: 5,
+                curveSegments: 6
+            },
+            material: new __WEBPACK_IMPORTED_MODULE_3_three__["d" /* MeshBasicMaterial */]({
+                color: 0xffffff
+            }),
+            position: [-100, 0, 0]
+        };
+        this.controlsModule = new __WEBPACK_IMPORTED_MODULE_2_whs_build_whs__["OrbitControlsModule"]();
+        this.containerModules.push(this.controlsModule);
+    }
+    return TextComponent;
+}());
+TextComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-text',
+        template: __webpack_require__("../../../../../src/example/text/text.component.html"),
+    }),
+    __metadata("design:paramtypes", [])
+], TextComponent);
+
+//# sourceMappingURL=text.component.js.map
 
 /***/ }),
 

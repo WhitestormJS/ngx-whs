@@ -5,7 +5,7 @@ import { Dodecahedron } from 'whs';
 import { MeshComponent } from '../../../core';
 
 @Component({
-  selector: 'whs-odecahedron',
+  selector: 'whs-dodecahedron',
   template: '<ng-content></ng-content>',
 })
 export class DodecahedronComponent extends MeshComponent implements OnInit {

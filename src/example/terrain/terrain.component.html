@@ -1,0 +1,6 @@
+<whs-sence [modules]="containerModules">
+  <whs-ambient-light #component [params]="ambientLightParams"></whs-ambient-light>
+  <whs-point-light #component [params]="pointLightParams"></whs-point-light>
+  <whs-parametric #component [params]="terrainParams" (ready)="ready($event)"></whs-parametric>
+  <whs-sphere #component [params]="sphereParams"></whs-sphere>
+</whs-sence>
