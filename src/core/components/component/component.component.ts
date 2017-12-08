@@ -1,6 +1,6 @@
 import {
   Component, Input, OnInit, QueryList, ViewChildren, AfterViewInit, AfterContentInit, ContentChildren,
- EventEmitter, Output
+  EventEmitter, Output,
 } from '@angular/core';
 
 import { Component as WhsComponent, App } from 'whs';
@@ -20,7 +20,8 @@ export class ComponentComponent implements OnInit, AfterViewInit {
 
   @Output() ready = new EventEmitter<WhsComponent>();
 
-  @ContentChildren(MarkAsComponentDirective) components: QueryList<MarkAsComponentDirective<ComponentComponent>>;
+  @ContentChildren(MarkAsComponentDirective) componentsAsContent: QueryList<MarkAsComponentDirective<ComponentComponent>>;
+  @ViewChildren(MarkAsComponentDirective) componentsAsView: QueryList<MarkAsComponentDirective<ComponentComponent>>;
 
   constructor() {
   }
@@ -35,10 +36,11 @@ export class ComponentComponent implements OnInit, AfterViewInit {
   }
 
   private attach() {
-    this.components
-      .map(component => component.component)
+    this.componentsAsContent.map(component => component.component)
+      .concat(this.componentsAsView.map(component => component.component))
       .forEach((component) => {
-        if (component instanceof ComponentComponent && (component !== this)) {
+        console.log('-----', component);
+        if (component && component instanceof ComponentComponent && ((component as any) !== this)) {
           console.log('attach', component, this);
           this.add(component);
         }

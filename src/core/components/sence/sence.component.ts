@@ -27,7 +27,8 @@ export class SenceComponent implements OnInit, AfterViewInit, OnDestroy {
   _instance: App;
 
   @ViewChild('instance') private instance: ElementRef;
-  @ContentChildren(MarkAsComponentDirective) components: QueryList<MarkAsComponentDirective<ComponentComponent>>;
+  @ContentChildren(MarkAsComponentDirective) componentsAsContent: QueryList<MarkAsComponentDirective<ComponentComponent>>;
+  @ViewChildren(MarkAsComponentDirective) componentsAsView: QueryList<MarkAsComponentDirective<ComponentComponent>>;
 
   @Input() modules = [];
 
@@ -71,13 +72,15 @@ export class SenceComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   private attach() {
-    this.components
-      .map(component => component.component)
-      .forEach(component => {
-        if (component instanceof ComponentComponent && (component as any !== this)) {
-          console.log('secen attach', component);
-          this.add(component._instance);
-        }
-      });
+
+    this.componentsAsContent.map(component => component.component)
+    .concat(this.componentsAsView.map(component => component.component))
+    .forEach((component) => {
+      console.log('sence -->', component);
+      if (component && component instanceof ComponentComponent && (component as any !== this)) {
+        console.log('attach', component, this);
+        this.add(component._instance);
+      }
+    });
   }
 }
