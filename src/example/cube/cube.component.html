@@ -1,0 +1,13 @@
+<whs-sence [modules]="containerModules" (ready)="service.secenReady($event)">
+  <whs-ambient-light whsMarkAsComponent [params]="ambientLight"></whs-ambient-light>
+  <whs-point-light whsMarkAsComponent [params]="pointLight"></whs-point-light>
+
+
+  <whs-box whsMarkAsComponent [params]="box" >
+    <whs-box *ngFor="let wall of boxWalls" whsMarkAsComponent [params]="wall"></whs-box>
+  </whs-box>
+
+
+  <whs-sphere whsMarkAsComponent [params]="ball"></whs-sphere>
+
+</whs-sence>

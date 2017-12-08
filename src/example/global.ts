@@ -1,8 +1,8 @@
 import * as THREE from 'three';
 
-import { ElementModule, SceneModule, StateModule, MeshComponent } from 'whs';
-
 import * as WHS from 'whs/build/whs';
+import * as StatsModules from 'whs/modules/StatsModule';
+
 import { WorldModule, SphereModule, BoxModule, PlaneModule } from 'physics-module-ammonext';
 
 const isMobile = (function () {
@@ -78,7 +78,7 @@ export const appModules = ( // appModules(camera, rendering);
       new WHS.RenderingModule(rendering, { shadow: true }),
       new WorldModule(physics),
       useControls ? new WHS.OrbitControlsModule() : null,
-      new StateModule(),
+      new StatsModules(),
       new WHS.ResizeModule()
     ]
   );
@@ -153,7 +153,7 @@ function hexToRgb(hex) {
   return `rgba(${r}, ${g}, ${b}, 1.0)`;
 }
 
-export class Label extends MeshComponent {
+export class Label extends WHS.MeshComponent {
   canvas: HTMLCanvasElement;
   ctx: CanvasRenderingContext2D;
   params;

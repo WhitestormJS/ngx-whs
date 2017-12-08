@@ -26,12 +26,10 @@ export class LoopDirective implements OnInit, AfterViewInit {
     }
 
   ngOnInit() {
-    console.log('loop create');
     const hostComponent = (<any>this._view)._data.componentView.component;
-
     this._loop = new Loop((clock) => {
       hostComponent._instance.defer(() => {
-        this.whsLoop(hostComponent, clock, this.secen);
+        this.whsLoop(hostComponent._instance, clock, this.secen);
       });
     }, this.useLock);
   }

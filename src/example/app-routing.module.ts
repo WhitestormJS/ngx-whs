@@ -6,7 +6,7 @@ import { MouseComponent } from './mouse';
 import { TextComponent } from './text';
 import { TerrainComponent } from './terrain';
 import { SaturnComponent } from './saturn';
-
+import { CubeComponent } from './cube';
 
 export interface Menu {
   content: string;
@@ -21,7 +21,7 @@ export const children: Routes = [
     path: 'helloworld',
     component: HelloWorldComponent,
     data: {
-      content: 'hello world',
+      content: 'basic/helloworld',
       link: 'helloworld',
       icon: 'anticon anticon-dot-chart'
     }
@@ -30,7 +30,7 @@ export const children: Routes = [
     path: 'mouse',
     component: MouseComponent,
     data: {
-      content: 'mouse',
+      content: 'basic/mouse',
       link: 'mouse',
       icon: 'anticon anticon-dot-chart'
     }
@@ -39,7 +39,7 @@ export const children: Routes = [
     path: 'text',
     component: TextComponent,
     data: {
-      content: 'text',
+      content: 'basic/text',
       link: 'text',
       icon: 'anticon anticon-dot-chart'
     }
@@ -48,7 +48,7 @@ export const children: Routes = [
     path: 'saturn',
     component: SaturnComponent,
     data: {
-      content: 'saturn',
+      content: 'basic/saturn',
       link: 'saturn',
       icon: 'anticon anticon-dot-chart'
     }
@@ -57,8 +57,17 @@ export const children: Routes = [
     path: 'terrain',
     component: TerrainComponent,
     data: {
-      content: 'terrain',
+      content: 'basic/terrain',
       link: 'terrain',
+      icon: 'anticon anticon-dot-chart'
+    }
+  },
+  {
+    path: 'cube',
+    component: CubeComponent,
+    data: {
+      content: 'basic/cube',
+      link: 'cube',
       icon: 'anticon anticon-dot-chart'
     }
   }

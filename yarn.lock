@@ -204,13 +204,17 @@
   dependencies:
     "@types/jasmine" "*"
 
-"@types/node@^6.0.46", "@types/node@~6.0.60":
+"@types/node@^6.0.46":
   version "6.0.92"
   resolved "http://r.cnpmjs.org/@types/node/download/@types/node-6.0.92.tgz#e7f721ae282772e12ba2579968c00d9cce422c5d"
 
 "@types/node@^8.0.4":
   version "8.0.56"
   resolved "https://registry.npmjs.org/@types/node/-/node-8.0.56.tgz#c4652f88d7a677e26ccc16c1485c282ce28f1ce9"
+
+"@types/node@~6.0.60":
+  version "6.0.97"
+  resolved "https://registry.npmjs.org/@types/node/-/node-6.0.97.tgz#72199848e8f3cfa975864031ac12e0ef6ccfe054"
 
 "@types/q@^0.0.32":
   version "0.0.32"
@@ -221,14 +225,14 @@
   resolved "http://r.cnpmjs.org/@types/selenium-webdriver/download/@types/selenium-webdriver-2.53.43.tgz#2de3d718819bc20165754c4a59afb7e9833f6707"
 
 "@types/three@^0.84.24":
-  version "0.84.32"
-  resolved "http://r.cnpmjs.org/@types/three/download/@types/three-0.84.32.tgz#4921b6cf7b766213cfc3c22899e573684f5b7b96"
+  version "0.84.37"
+  resolved "https://registry.npmjs.org/@types/three/-/three-0.84.37.tgz#30ddd17a59a970ef21d252c08ae1cdd7b8b57cff"
   dependencies:
     "@types/webvr-api" "*"
 
 "@types/webvr-api@*":
   version "0.0.31"
-  resolved "http://r.cnpmjs.org/@types/webvr-api/download/@types/webvr-api-0.0.31.tgz#f6061fe88a035d34a8b6a0c55f8758901ec8a08e"
+  resolved "https://registry.npmjs.org/@types/webvr-api/-/webvr-api-0.0.31.tgz#f6061fe88a035d34a8b6a0c55f8758901ec8a08e"
 
 abbrev@1:
   version "1.1.1"
@@ -4107,11 +4111,13 @@ performance-now@^2.1.0:
   version "2.1.0"
   resolved "http://r.cnpmjs.org/performance-now/download/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
 
-physics-module-ammonext@^0.1.2:
-  version "0.1.2"
-  resolved "https://registry.npmjs.org/physics-module-ammonext/-/physics-module-ammonext-0.1.2.tgz#75084b7d0d0afc412b47096cc91065e9d1eec4a8"
+physics-module-ammonext@^0.1.2-fix.1:
+  version "0.1.2-fix.1"
+  resolved "https://registry.npmjs.org/physics-module-ammonext/-/physics-module-ammonext-0.1.2-fix.1.tgz#191733afe6fbb8ee9095d550209008f3948a88f0"
   dependencies:
     ammonext "0.0.3"
+    rollup-plugin-bundle-worker "^0.1.0"
+    rollup-plugin-ignore "^1.0.3"
     three "^0.84.0"
     whs "^2.0.0-beta.2"
 
@@ -4932,6 +4938,10 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
     hash-base "^2.0.0"
     inherits "^2.0.1"
 
+rollup-plugin-bundle-worker@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.npmjs.org/rollup-plugin-bundle-worker/-/rollup-plugin-bundle-worker-0.1.0.tgz#f9aaaae8fb302a3f8c8952fd8e622617abaf659d"
+
 rollup-plugin-commonjs@^8.2.6:
   version "8.2.6"
   resolved "https://registry.npmjs.org/rollup-plugin-commonjs/-/rollup-plugin-commonjs-8.2.6.tgz#27e5b9069ff94005bb01e01bb46a1e4873784677"
@@ -4941,6 +4951,10 @@ rollup-plugin-commonjs@^8.2.6:
     magic-string "^0.22.4"
     resolve "^1.4.0"
     rollup-pluginutils "^2.0.1"
+
+rollup-plugin-ignore@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.npmjs.org/rollup-plugin-ignore/-/rollup-plugin-ignore-1.0.3.tgz#9a3caac6709e481471ce4498a48164bbc2359e3d"
 
 rollup-plugin-node-resolve@^3.0.0:
   version "3.0.0"
@@ -5699,8 +5713,8 @@ tslib@^1.6.0, tslib@^1.7.1:
   resolved "http://r.cnpmjs.org/tslib/download/tslib-1.8.0.tgz#dc604ebad64bcbf696d613da6c954aa0e7ea1eb6"
 
 tslint-language-service@^0.9.6:
-  version "0.9.6"
-  resolved "http://r.cnpmjs.org/tslint-language-service/download/tslint-language-service-0.9.6.tgz#882bb0704cf8397b332ddc0af7168c7f22f279ea"
+  version "0.9.8"
+  resolved "https://registry.npmjs.org/tslint-language-service/-/tslint-language-service-0.9.8.tgz#22a6f2f926b7c0a4cafed3ae1f65021e8008dc96"
 
 tslint@~5.3.2:
   version "5.3.2"
@@ -6140,7 +6154,7 @@ which@1, which@^1.2.1, which@^1.2.9:
   dependencies:
     isexe "^2.0.0"
 
-whs@^2.0.0-beta.2, whs@^2.1.8:
+whs@^2.0.0-beta.2, whs@^2.1.9:
   version "2.1.9"
   resolved "https://registry.npmjs.org/whs/-/whs-2.1.9.tgz#8d84ca7c9e3a46b3b7cf15f4c8359d6e03595b7c"
   dependencies:

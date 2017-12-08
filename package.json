@@ -13,6 +13,7 @@
     "rollup": "./node_modules/.bin/rollup -c rollup.config.js dist/ngxWhs.module.js -o dist/ngxWhs.module.umd.js",
     "clean:typescript": "rimraf dist",
     "clean": "npm run clean:typescript && rimraf node_modules && npm cache verify",
+    "example": "ng build",
     "prepublish": "npm run build"
   },
   "main": "dist/ngxWhs.module.umd.js",
@@ -32,10 +33,10 @@
     "@angular/router": "^4.2.4",
     "core-js": "^2.4.1",
     "ng-zorro-antd": "^0.5.5",
-    "physics-module-ammonext": "^0.1.2",
+    "physics-module-ammonext": "^0.1.2-fix.1",
     "rxjs": "^5.4.2",
     "three": "^0.88.0",
-    "whs": "^2.1.8",
+    "whs": "^2.1.9",
     "zone.js": "^0.8.14"
   },
   "devDependencies": {

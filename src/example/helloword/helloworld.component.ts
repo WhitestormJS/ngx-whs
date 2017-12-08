@@ -27,27 +27,32 @@ import { WorldModule, SphereModule, BoxModule, PlaneModule } from 'physics-modul
 })
 export class HelloWorldComponent {
 
-  containerModules = [
-    new SceneModule(),
-    new WHS.DefineModule('camera', new PerspectiveCamera({
-      position: new THREE.Vector3(0, 10, 50),
-      far: 1000,
-    })),
-    new RenderingModule({
-      bgColor: 0x162129,
-      renderer: {
-        antialias: true,
-        shadowmap: {
-          type: THREE.PCFSoftShadowMap,
-        },
-      }
-    }, { shadow: true }), // Apply THREE.WebGLRenderer
-    new WorldModule({
-      ammo: 'https://whs-dev.surge.sh/examples/assets/ammo.js',
-    }),
-    new OrbitControlsModule(),
-    new ResizeModule(), // Make it resizable.
-  ];
+  containerModules = (() => {
+    // tslint:disable-next-line:no-debugger
+    return [
+      new SceneModule(),
+      new WHS.DefineModule('camera', new PerspectiveCamera({
+        position: new THREE.Vector3(0, 10, 50),
+        far: 1000,
+      })),
+      new RenderingModule({
+        bgColor: 0x162129,
+        renderer: {
+          antialias: true,
+          shadowmap: {
+            type: THREE.PCFSoftShadowMap,
+          },
+        }
+      }, { shadow: true }), // Apply THREE.WebGLRenderer
+      new WorldModule({
+        ammo: 'https://whs-dev.surge.sh/examples/assets/ammo.js',
+      }),
+      new OrbitControlsModule(),
+      new ResizeModule(), // Make it resizable.
+    ];
+
+
+  })();
 
   sphereParams = { // Create sphere component.
     geometry: {
@@ -67,7 +72,6 @@ export class HelloWorldComponent {
     }),
     position: [0, 100, 0]
   };
-
 
   planeParams = getBoxPlane();
 

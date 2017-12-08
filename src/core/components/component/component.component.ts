@@ -31,7 +31,7 @@ export class ComponentComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.attach();
+    this._instance.defer(() => this.attach());
     this.ready.emit(this._instance);
   }
 
@@ -39,9 +39,8 @@ export class ComponentComponent implements OnInit, AfterViewInit {
     this.componentsAsContent.map(component => component.component)
       .concat(this.componentsAsView.map(component => component.component))
       .forEach((component) => {
-        console.log('-----', component);
         if (component && component instanceof ComponentComponent && ((component as any) !== this)) {
-          console.log('attach', component, this);
+          console.log('component, attach', component, this);
           this.add(component);
         }
       });

@@ -1,7 +1,7 @@
 import {
   Component, ElementRef, OnInit, Input, AfterViewInit, AfterViewChecked, ViewChild,
    SkipSelf, Optional, ChangeDetectionStrategy, ViewChildren, QueryList, ContentChildren,
-  OnDestroy,
+  OnDestroy, EventEmitter, Output
 } from '@angular/core';
 import * as THREE from 'three';
 import { App, ElementModule, SceneModule, RenderingModule, Component as WhsComponentNative } from 'whs';
@@ -33,6 +33,8 @@ export class SenceComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() modules = [];
 
   @Input() id: string;
+  @Output() ready = new EventEmitter<App>();
+
   constructor(
     private element: ElementRef,
     @SkipSelf() @Optional() parent: SenceComponent) {
@@ -42,7 +44,6 @@ export class SenceComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   private createContainer() {
-    console.log(this.modules);
     this._instance = new App([
       new ElementModule(this.instance.nativeElement),
       ...this.modules,
@@ -65,6 +66,7 @@ export class SenceComponent implements OnInit, AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     this.attach();
     this.build();
+    this.ready.next(this._instance);
   }
 
   ngOnDestroy() {
@@ -76,9 +78,8 @@ export class SenceComponent implements OnInit, AfterViewInit, OnDestroy {
     this.componentsAsContent.map(component => component.component)
     .concat(this.componentsAsView.map(component => component.component))
     .forEach((component) => {
-      console.log('sence -->', component);
       if (component && component instanceof ComponentComponent && (component as any !== this)) {
-        console.log('attach', component, this);
+        console.log('secen attach', component, this);
         this.add(component._instance);
       }
     });
