@@ -2,7 +2,7 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CoreModule, SenceComponent, CameraComponent, ComponentComponent, LightComponent, MeshComponent, LoopDirective,
-  PROVIDERS } from './core';
+  MarkAsComponentDirective, PROVIDERS } from './core';
 
 import { CubeCameraComponent, OrthographicCameraComponent, PerspectiveCameraComponent,
   AmbientLightComponent, AreaLightComponent, DirectionalLightComponent, HemisphereLightComponent, PointLightComponent, SpotLightComponent,
@@ -20,6 +20,7 @@ const CORE_COMPONENT = [
   ComponentComponent,
 
   LoopDirective,
+  MarkAsComponentDirective,
 ];
 
 const COMPONETS = [

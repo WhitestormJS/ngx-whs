@@ -2,7 +2,7 @@ import { Component, Host, Optional, OnInit, Input } from '@angular/core';
 
 import { Sphere, SphereParams } from 'whs';
 
-import { StateService, TYPE_ADDTO, SenceComponent, ComponentComponent } from '../../../core';
+import { ComponentComponent } from '../../../core';
 
 
 @Component({
@@ -14,16 +14,8 @@ export class SphereComponent extends ComponentComponent implements OnInit {
 
   @Input() params: SphereParams;
 
-  constructor(@Host() @Optional() private state: StateService, @Optional() private sence: SenceComponent ) {
-    super();
-    if (!sence) {
-      throw new Error('SphereComponent should be hosted by SenceComponent');
-    }
-  }
-
   ngOnInit() {
     this._instance = new Sphere(this.params);
-    this.sence.add(this._instance);
   }
 
 }

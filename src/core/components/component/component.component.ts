@@ -1,23 +1,17 @@
-import { Component, Input, OnInit, QueryList, ViewChildren, AfterViewInit, AfterContentInit, ContentChildren,
-  InjectionToken, EventEmitter, Output } from '@angular/core';
+import {
+  Component, Input, OnInit, QueryList, ViewChildren, AfterViewInit, AfterContentInit, ContentChildren,
+ EventEmitter, Output
+} from '@angular/core';
 
 import { Component as WhsComponent, App } from 'whs';
-
-import { StateService } from '../../services';
-
 import { SenceComponent } from '../sence';
-
-export interface ComponentInterface {
-  _instance: any;
-}
-
-export const ComponentInterfaceToken = new InjectionToken<ComponentInterface>('ComponentInterfaceToken');
+import { MarkAsComponentDirective } from '../../directives/markAsComponent';
 
 @Component({
   selector: 'whs-component',
   template: '<ng-content></ng-content>',
 })
-export class ComponentComponent implements OnInit, AfterViewInit, AfterContentInit, ComponentInterface {
+export class ComponentComponent implements OnInit, AfterViewInit {
   @Input() params: object;
   @Input() defaults: object;
   @Input() instructions: object;
@@ -26,30 +20,29 @@ export class ComponentComponent implements OnInit, AfterViewInit, AfterContentIn
 
   @Output() ready = new EventEmitter<WhsComponent>();
 
-  @ContentChildren('component') components: QueryList<ComponentComponent>;
+  @ContentChildren(MarkAsComponentDirective) components: QueryList<MarkAsComponentDirective<ComponentComponent>>;
 
-  constructor () {
+  constructor() {
   }
 
   ngOnInit() {
     this._instance = new WhsComponent(this.params, this.defaults, this.instructions);
   }
 
-  ngAfterContentInit() {
+  ngAfterViewInit() {
     this.attach();
     this.ready.emit(this._instance);
   }
 
-  ngAfterViewInit() {
-  }
-
   private attach() {
-    this.components.forEach((component) => {
-      if (component instanceof ComponentComponent && (component !== this)) {
-        console.log('attach', component, this);
-        this.add(component);
-      }
-    });
+    this.components
+      .map(component => component.component)
+      .forEach((component) => {
+        if (component instanceof ComponentComponent && (component !== this)) {
+          console.log('attach', component, this);
+          this.add(component);
+        }
+      });
   }
 
   add(obj: ComponentComponent): Promise<WhsComponent> {

@@ -1,19 +1,14 @@
 import { NgModule, ModuleWithProviders, Provider, forwardRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { SenceComponent, LightComponent, ComponentComponent, CameraComponent, MeshComponent,
-  ComponentInterface, ComponentInterfaceToken } from './components';
+import { SenceComponent, LightComponent, ComponentComponent, CameraComponent, MeshComponent, } from './components';
 
 import { StateService } from './services';
 
-import { LoopDirective } from './directives';
+import { LoopDirective, MarkAsComponentDirective } from './directives';
 
 export const PROVIDERS: Provider[] = [
-  StateService,
-  {
-    provide: ComponentInterfaceToken,
-    useExisting: forwardRef(() => ComponentComponent),
-  }
+  StateService
 ];
 
 const COMPONENTS = [
@@ -24,6 +19,7 @@ const COMPONENTS = [
   MeshComponent,
 
   LoopDirective,
+  MarkAsComponentDirective,
 ];
 
 const DIRECTIVES = [];

@@ -1,7 +1,7 @@
 import { Directive, ViewContainerRef, OnInit, AfterViewInit, AfterContentInit, Inject, Input, Type, SkipSelf,
   Optional } from '@angular/core';
 
-import { ComponentInterface, ComponentInterfaceToken, SenceComponent } from '../../components';
+import { SenceComponent } from '../../components';
 
 import { Loop, } from 'whs';
 import { Clock } from 'three';
@@ -9,7 +9,7 @@ import { Clock } from 'three';
 @Directive({
   selector: '[whsLoop]'
 })
-export class LoopDirective implements OnInit, AfterContentInit {
+export class LoopDirective implements OnInit, AfterViewInit {
 
   _loop: Loop;
 
@@ -36,7 +36,7 @@ export class LoopDirective implements OnInit, AfterContentInit {
     }, this.useLock);
   }
 
-  ngAfterContentInit() {
+  ngAfterViewInit() {
     this._loop.start(this.secen._instance);
   }
 

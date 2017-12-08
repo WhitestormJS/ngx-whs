@@ -1,18 +1,18 @@
-import { Component, ComponentRef, ElementRef, OnInit, Input, OnChanges, AfterViewInit, AfterViewChecked, ViewChild,
-  TemplateRef, SkipSelf, Optional, ChangeDetectionStrategy, ViewChildren, QueryList, ContentChildren, AfterContentInit,
-  OnDestroy, } from '@angular/core';
+import {
+  Component, ElementRef, OnInit, Input, AfterViewInit, AfterViewChecked, ViewChild,
+   SkipSelf, Optional, ChangeDetectionStrategy, ViewChildren, QueryList, ContentChildren,
+  OnDestroy,
+} from '@angular/core';
 import * as THREE from 'three';
-import { App, ElementModule, SceneModule, RenderingModule,  Component as WhsComponentNative } from 'whs';
-
-import { StateService, TYPE_ADDTO } from '../../services';
+import { App, ElementModule, SceneModule, RenderingModule, Component as WhsComponentNative } from 'whs';
 
 import { ComponentComponent } from '../component';
+import { MarkAsComponentDirective } from '../../directives/markAsComponent';
 
 
 @Component({
   selector: 'whs-sence',
   template: '<div #instance class="whs-fullScreen"><ng-content></ng-content></div>',
-  providers: [ StateService ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   styles: [
     `
@@ -23,24 +23,22 @@ import { ComponentComponent } from '../component';
     `
   ]
 })
-export class SenceComponent implements OnInit, AfterViewInit, AfterContentInit, OnDestroy {
+export class SenceComponent implements OnInit, AfterViewInit, OnDestroy {
   _instance: App;
 
   @ViewChild('instance') private instance: ElementRef;
-
-  @ContentChildren('component') components: QueryList<ComponentComponent>;
+  @ContentChildren(MarkAsComponentDirective) components: QueryList<MarkAsComponentDirective<ComponentComponent>>;
 
   @Input() modules = [];
 
   @Input() id: string;
   constructor(
     private element: ElementRef,
-    private state: StateService,
     @SkipSelf() @Optional() parent: SenceComponent) {
-      if (parent) {
-        throw new Error('SenceComponent can`t be embedded in SenceComponent');
-      }
+    if (parent) {
+      throw new Error('SenceComponent can`t be embedded in SenceComponent');
     }
+  }
 
   private createContainer() {
     console.log(this.modules);
@@ -61,18 +59,11 @@ export class SenceComponent implements OnInit, AfterViewInit, AfterContentInit, 
 
   ngOnInit() {
     this.createContainer();
-    // this.state.on(TYPE_ADDTO, (component: WhsComponentNative ) => {
-    //   component.addTo(this._instance);
-    // });
-  }
-
-  ngAfterContentInit() {
-    this.attach();
-    this.build();
   }
 
   ngAfterViewInit() {
-
+    this.attach();
+    this.build();
   }
 
   ngOnDestroy() {
@@ -80,11 +71,13 @@ export class SenceComponent implements OnInit, AfterViewInit, AfterContentInit, 
   }
 
   private attach() {
-    this.components.forEach(component => {
-      if (component instanceof ComponentComponent && (component as any !== this)) {
-        console.log('secen attach', component);
-        this.add(component._instance);
-      }
-    });
+    this.components
+      .map(component => component.component)
+      .forEach(component => {
+        if (component instanceof ComponentComponent && (component as any !== this)) {
+          console.log('secen attach', component);
+          this.add(component._instance);
+        }
+      });
   }
 }
